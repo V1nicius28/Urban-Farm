@@ -1,0 +1,120 @@
+﻿<Window x:Class="Pim_Desktop.LoginFacebook"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pim_Desktop"
+        mc:Ignorable="d"
+        Title="LoginFacebook" Height="450" Width="500"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
+
+    <Border Background="White" Margin="0,0,0,0">
+        <Grid>
+            <TextBlock Text="Facebook" Width="98" Foreground="#365899" VerticalAlignment="Top" HorizontalAlignment="Center" 
+               FontFamily="Tahoma" FontSize="20" IsHitTestVisible="False" Margin="0,44,0,0" FontWeight="Bold"/>
+
+            <Border Name="EmailBorder" HorizontalAlignment="Center" Height="28" Background="Transparent"
+            VerticalAlignment="Top" Width="280" Margin="0,110,0,0" SnapsToDevicePixels="True"
+            BorderBrush="#90949C" BorderThickness="0.5"/>
+
+            <TextBlock Name="EmailText" Text="Email ou Telefone" Foreground="#90949C" VerticalAlignment="Top" 
+               FontFamily="Tahoma" FontSize="12" IsHitTestVisible="False" Margin="121,118,282,0"/>
+
+            <TextBox Name="EmailTextBox" Style="{StaticResource FacebookEmailStyle}" Width="260" HorizontalAlignment="Center" 
+              VerticalAlignment="Top" FontFamily="Tahoma" FontSize="12" TextChanged="EmailTextBox_TextChanged"
+              GotFocus="EmailBox_GotFocus" LostFocus="EmailBox_LostFocus" Margin="0,117,0,0"/>
+
+            <TextBlock x:Name="EmailError" Text="Email inválido" Foreground="#ED4245" Visibility="Collapsed" FontSize="12" Margin="0,90,185,0" Width="90" Height="20" VerticalAlignment="Top"/>
+
+            <Border Name="SenhaBorder" HorizontalAlignment="Center" Height="28" Background="Transparent"
+              VerticalAlignment="Top" Width="280" Margin="0,150,0,0" SnapsToDevicePixels="True"
+              BorderBrush="#90949C" BorderThickness="0.5"/>
+
+            <TextBlock Name="SenhaText" Text="Senha" Foreground="#90949C" VerticalAlignment="Top" 
+              FontFamily="Tahoma" FontSize="12" IsHitTestVisible="False" Margin="121,157,282,0"/>
+
+            <TextBlock x:Name="SenhaError" Text="Suas credenciais estão incorretas ou expiraram" Foreground="#ED4245" Visibility="Collapsed" FontSize="12" Margin="0,180,15,0" Width="260" Height="20" VerticalAlignment="Top"/>
+
+            <PasswordBox Name="SenhaTextBox" Style="{StaticResource FacebookSenhaStyle}" Width="260" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Tahoma" FontSize="12"                                  
+              GotFocus="SenhaBox_GotFocus" LostFocus="SenhaBox_LostFocus"  Visibility="Visible"  Margin="0,156,3,0" PasswordChanged="SenhaPasswordBox_PasswordChanged"/>
+
+            <Button Name="Entrar" HorizontalAlignment="Center" VerticalAlignment="Top" Width="280" Height="38"
+              Background="#365899" Margin="0,205,0,0" BorderBrush="Transparent" 
+              BorderThickness="0"  Foreground="White" FontSize="16" Content="Entrar" Click="Entrar_Click"
+              FontFamily="Tahoma" Cursor="Hand">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" 
+                    BorderBrush="{TemplateBinding BorderBrush}" 
+                    CornerRadius="2" BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#2d4373" />
+                                <!-- Cor ao passar o mouse -->
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#1e2d54" />
+                                <!-- Cor ao clicar -->
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <TextBlock HorizontalAlignment="Center" Margin="0,255,0,0" TextWrapping="Wrap" 
+              Text="Esqueceu sua senha?" VerticalAlignment="Top" Foreground="#365899" 
+              FontFamily="Tahoma" Width="116">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="TextDecorations" Value="None"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="TextDecorations" Value="Underline"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+
+            <TextBlock HorizontalAlignment="Center" Margin="0,294,0,0" TextWrapping="Wrap" FontSize="12"
+              Text="Ou" VerticalAlignment="Top" Foreground="#90949C" 
+              FontFamily="Tahoma"/>
+
+            <Rectangle HorizontalAlignment="Left" Height="1" Margin="272,300,0,0" VerticalAlignment="Top" Width="118" Fill="#90949C"/>
+
+            <Rectangle HorizontalAlignment="Left" Height="1" Margin="110,300,0,0" VerticalAlignment="Top" Width="118" Fill="#90949C"/>
+
+            <Button Name="NovaConta" HorizontalAlignment="Center" VerticalAlignment="Top" Width="160" Height="38"
+              Background="#4AC822" Margin="0,330,0,0" BorderBrush="Transparent" 
+              BorderThickness="0"  Foreground="White" FontSize="16" Content="Criar nova conta"
+              FontFamily="Tahoma" Cursor="Hand">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" 
+                         BorderBrush="{TemplateBinding BorderBrush}" 
+                         CornerRadius="2" BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#40B429" />
+                                <!-- Cor ao passar o mouse -->
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#40B429" />
+                                <!-- Cor ao clicar -->
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+        </Grid>
+
+    </Border>
+</Window>

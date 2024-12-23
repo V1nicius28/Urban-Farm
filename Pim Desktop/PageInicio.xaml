@@ -1,0 +1,125 @@
+﻿<Page x:Class="Pim_Desktop.PageInicio"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Pim_Desktop"
+      mc:Ignorable="d" 
+      d:DesignHeight="730" d:DesignWidth="800"
+      Title="PageInicio">
+
+    <Grid>
+
+        <!-- Borda com gradiente -->
+        <Border BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" CornerRadius="20" Margin="10">
+            
+        
+            <!-- Contêiner para as imagens -->
+            <Grid>
+                <Viewbox Stretch="UniformToFill">
+                    <Image Source="Images/PalmeiraLeft.png" RenderTransformOrigin="10.0,-27.0">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="1.317"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>                      
+                    </Image>
+                </Viewbox>
+
+                <Viewbox Stretch="UniformToFill">
+                    <Image Source="Images/PalmeiraRight.png" Margin="0,0,0,0" RenderTransformOrigin="2.3,6.8">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="5.917"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                </Viewbox>
+            </Grid>
+        </Border>
+    
+
+    <Button x:Name="Button1" HorizontalAlignment="Center" VerticalAlignment="Top"
+                Width="160" Height="180" Background="Transparent" BorderBrush="Transparent"
+                Margin="0,240,400,0" Style="{StaticResource RoundedButtonStyle}" Click="Producao_Click">
+                <Image Source="Images/Group1.png" Width="130" Height="130"/>
+        </Button>
+
+        <Button x:Name="Button2" HorizontalAlignment="Center" VerticalAlignment="Top"
+                Width="160" Height="180" Background="Transparent" BorderBrush="Transparent"
+                Margin="0,240,0,0" Style="{StaticResource RoundedButtonStyle}" Click="Irrigaçao_Click">
+                <Image Source="Images/Group2.png" Width="130" Height="130"/>
+        </Button>
+
+        <Button x:Name="Button3" HorizontalAlignment="Center" VerticalAlignment="Top"
+                Width="160" Height="180" Background="Transparent" BorderBrush="Transparent"
+                Margin="400,240,0,0" Style="{StaticResource RoundedButtonStyle}" Click="Consumo_Click">
+                <Image Source="Images/Group3.png" Width="130" Height="130"/>
+        </Button>
+
+        <Button x:Name="Button4" HorizontalAlignment="Center" VerticalAlignment="Top"
+                Width="160" Height="180" Background="Transparent" BorderBrush="Transparent"
+                Margin="0,470,400,0" Style="{StaticResource RoundedButtonStyle}" Click="Iluminacao_Click">
+                <Image Source="Images/Group4.png" Width="130" Height="130"/>
+        </Button>
+
+        <Button x:Name="Button5" HorizontalAlignment="Center" VerticalAlignment="Top"
+                Width="160" Height="180" Background="Transparent" BorderBrush="Transparent"
+                Margin="0,470,0,0" Style="{StaticResource RoundedButtonStyle}" Click="Plantas_Click">
+                <Image Source="Images/Group5.png" Width="130" Height="130"/>
+        </Button>
+
+        <Button x:Name="Button6" HorizontalAlignment="Center" VerticalAlignment="Top"
+                Width="160" Height="180" Background="Transparent" BorderBrush="Transparent"
+                Margin="400,470,0,0" Style="{StaticResource RoundedButtonStyle}" Click="Fornecedores_Click">
+                <Image Source="Images/Group6.png" Width="130" Height="130"/>
+        </Button>
+
+        <Image Source="Images/Vector1.png" Width="30" Height="430" Margin="0,236,200,0" VerticalAlignment="Top"/>
+
+        <Image Source="Images/Vector1.png" Width="30" Height="430" Margin="200,236,0,0" VerticalAlignment="Top"/>
+
+        <Image Source="Images/Vector2.png" Width="545" Height="3" Margin="0,460,0,0" VerticalAlignment="Top"/>
+
+        <Image Source="Images/Vector3.png" Width="12" Height="12" Margin="0,330,200,0" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+        <Image Source="Images/Vector3.png" Width="12" Height="12" Margin="200,330,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+        <Image Source="Images/Vector3.png" Width="12" Height="12" Margin="0,555,200,0" VerticalAlignment="Top"/>
+
+        <Image Source="Images/Vector3.png" Width="12" Height="12" Margin="200,555,0,0" VerticalAlignment="Top"/>
+
+        <Image Source="Images/Eco.png" Width="200" Height="250" Margin="12,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+        <TextBlock HorizontalAlignment="Center" Margin="0,410,400,0" TextWrapping="Wrap" 
+           Text="Produção" VerticalAlignment="Top" Foreground="White" 
+           FontSize="20" FontFamily="Tahoma"/>
+
+        <TextBlock HorizontalAlignment="Center" Margin="0,410,0,0" TextWrapping="Wrap" 
+           Text="Irrigação" VerticalAlignment="Top" Foreground="White" 
+           FontSize="20" FontFamily="Tahoma"/>
+
+        <TextBlock HorizontalAlignment="Center" Margin="400,410,0,0" TextWrapping="Wrap" 
+           Text="Consumo" VerticalAlignment="Top" Foreground="White" 
+           FontSize="20" FontFamily="Tahoma"/>
+
+        <TextBlock HorizontalAlignment="Center" Margin="0,635,400,0" TextWrapping="Wrap" 
+           Text="Iluminação" VerticalAlignment="Top" Foreground="White" 
+           FontSize="20" FontFamily="Tahoma"/>
+
+        <TextBlock HorizontalAlignment="Center" Margin="0,635,0,0" TextWrapping="Wrap" 
+           Text="Plantas" VerticalAlignment="Top" Foreground="White" 
+            FontSize="20" FontFamily="Tahoma"/>
+
+        <TextBlock HorizontalAlignment="Center" Margin="400,635,0,0" TextWrapping="Wrap" 
+           Text="Fornecedores" VerticalAlignment="Top" Foreground="White" 
+           FontSize="20" FontFamily="Tahoma"/>
+
+    </Grid>
+</Page>

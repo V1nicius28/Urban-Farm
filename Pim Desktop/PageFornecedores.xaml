@@ -1,0 +1,288 @@
+﻿<Page x:Class="Pim_Desktop.PageFornecedores"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Pim_Desktop"
+      mc:Ignorable="d" 
+      d:DesignHeight="730" d:DesignWidth="800"
+      Title="PageFornecedores">
+
+    <Grid>
+        <!-- Borda com gradiente -->
+        <Border BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" CornerRadius="20" Margin="10">
+
+
+            <!-- Contêiner para as imagens -->
+            <Grid>
+                <Viewbox Stretch="UniformToFill">
+                    <Image Source="Images/PalmeiraLeft.png" RenderTransformOrigin="4.0,-30.0">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="1.317"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                </Viewbox>
+
+                <Viewbox Stretch="UniformToFill">
+                    <Image Source="Images/PalmeiraRight.png" Margin="0,0,0,0" RenderTransformOrigin="2.3,7.3">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="5.917"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                </Viewbox>
+            </Grid>
+        </Border>
+
+        <!-- Popup para aviso -->
+        <Popup x:Name="AvisoPopup" Placement="Top" StaysOpen="False" AllowsTransparency="True">
+            <Border Background="#25A754" BorderBrush="Transparent" BorderThickness="1" CornerRadius="5" Padding="10">
+                <TextBlock x:Name="MensagemPopup" Foreground="White" FontSize="14" TextWrapping="Wrap"/>
+            </Border>
+        </Popup>
+
+
+        <Button Name="RegistroButton" Width="170" Height="38" BorderBrush="Transparent" 
+        Background="#25A754" Foreground="White" FontSize="16" Content="Registro dos Pedidos" 
+        FontFamily="Tahoma" Style="{StaticResource RoundedButtonStyle}" VerticalAlignment="Top"
+        Margin="0,30,20,0" DockPanel.Dock="Top" HorizontalAlignment="Right" Click="RegistroButton_Click"/>
+
+
+        <Border HorizontalAlignment="Center" Height="34" Background="#25A754"
+        VerticalAlignment="Top" Width="300" Margin="0,60,0,0"
+        CornerRadius="5" BorderBrush="Transparent" BorderThickness="0">
+            <TextBlock Text="Fornecedores" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,0"
+            Foreground="White" FontSize="16"/>
+        </Border>
+
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="32" Height="30" Background="Transparent"
+        Margin="40,40,0,0" Style="{StaticResource RoundedButtonStyle}" BorderBrush="Transparent" Click="Voltar_Click">
+            <Image Source="Images/Voltar.png" Width="30" Height="30"/>
+        </Button>
+
+        <Border Name="PesquisaBorder" HorizontalAlignment="Center" Height="34" Background="{DynamicResource Background}"
+        VerticalAlignment="Top" Width="550"  Margin="0,120,0,0" 
+        CornerRadius="5" BorderBrush="White" BorderThickness="1"/>
+
+        <Image HorizontalAlignment="Center" Margin="500,130,0,0" Source="/Images/Search.png" Stretch="Uniform"
+        VerticalAlignment="Top" Width="15" Height="16"/>
+
+        <TextBox Name="LocalTextBox" Style="{StaticResource CustomTextBoxStyle}" Width="490" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Tahoma"
+        FontSize="12" GotFocus="PesquisaBox_GotFocus"  LostFocus="PesquisaBox_LostFocus" Margin="0,130,30,0" TextChanged="LocalTextBox_TextChanged"/>
+
+        <TextBlock Name="LocalText" Text="Pesquisar..." Width="105" Foreground="White" VerticalAlignment="Top" FontFamily="Tahoma"
+        FontSize="12" IsHitTestVisible="False" Margin="0,130,415,0"/>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="130,200,125,20" >
+
+            <WrapPanel x:Name="WrapPanelFornecedores" Margin="0,0,0,0" Width="auto" Height="auto">
+                
+                <Border HorizontalAlignment="Center" Height="60" Background="{DynamicResource Background}"
+                VerticalAlignment="Top" Width="470" Margin="40,0,0,20"
+                CornerRadius="5" BorderBrush="#25A754" BorderThickness="1">
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Width="460">
+                        <Image HorizontalAlignment="Center" Margin="5,0,20,5" Source="/Images/Truck.png" Stretch="Uniform"
+                        Width="65" Height="43"/>
+                        <TextBlock Text="Verde Urbano Suprimentos" Width="175" Foreground="White" Margin="10,0,0,0"
+                        FontFamily="Tahoma" FontSize="14" IsHitTestVisible="False" Height="20"/>
+
+                        <Image HorizontalAlignment="Center" Margin="30,0,0,0" Source="/Images/StarFilled.png" Stretch="Uniform"
+                        Width="15" Height="16"/>
+                        <Image HorizontalAlignment="Center" Margin="5,0,0,0" Source="/Images/StarFilled.png" Stretch="Uniform"
+                        Width="15" Height="16"/>
+                        <Image HorizontalAlignment="Center" Margin="5,0,0,0" Source="/Images/StarFilled.png" Stretch="Uniform"
+                        Width="15" Height="16"/>
+                        <Image HorizontalAlignment="Center" Margin="5,0,0,0" Source="/Images/StarFilled.png" Stretch="Uniform"
+                        Width="15" Height="16"/>
+                        <Image HorizontalAlignment="Right" Margin="5,0,0,0" Source="/Images/StarFilled.png" Stretch="Uniform"
+                        Width="15" Height="16"/>
+
+                        <!-- Transformando a imagem em um botão -->
+                        <Button Tag="Verde Urbano Suprimentos" Width="20" Height="20" Margin="25,0,0,0" Background="Transparent" BorderBrush="Transparent" Style="{StaticResource RoundedButtonStyle}" Click="Pedido_Click">
+                            <Image Source="/Images/Mais.png" Stretch="Uniform" Width="20" Height="20" Cursor="Hand"/>
+                        </Button>
+                    </StackPanel>
+                </Border>
+
+                <Border HorizontalAlignment="Center" Height="60" Background="{DynamicResource Background}"
+                VerticalAlignment="Top" Width="470" Margin="40,0,0,20"
+                CornerRadius="5" BorderBrush="#25A754" BorderThickness="1">
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Width="460">
+                        <Image HorizontalAlignment="Center" Margin="5,0,20,5" Source="/Images/Truck.png" Stretch="Uniform"
+                        Width="65" Height="43"/>
+                        <TextBlock Text="Terra Viva Agrícola" Width="175" Foreground="White" Margin="10,0,0,0"
+                        FontFamily="Tahoma" FontSize="14" IsHitTestVisible="False" Height="20"/>
+
+                        <Image HorizontalAlignment="Center" Margin="30,0,0,0" Source="/Images/StarFilled.png" Stretch="Uniform"
+                        Width="15" Height="16"/>
+                        <Image HorizontalAlignment="Center" Margin="5,0,0,0" Source="/Images/StarFilled.png" Stretch="Uniform"
+                        Width="15" Height="16"/>
+                        <Image HorizontalAlignment="Center" Margin="5,0,0,0" Source="/Images/StarFilled.png" Stretch="Uniform"
+                        Width="15" Height="16"/>
+                       
+
+                        <!-- Transformando a imagem em um botão -->
+                        <Button Tag="Terra Viva Agrícola" Width="20" Height="20" Margin="65,0,0,0" Background="Transparent" BorderBrush="Transparent" Style="{StaticResource RoundedButtonStyle}" Click="Pedido_Click">
+                            <Image Source="/Images/Mais.png" Stretch="Uniform" Width="20" Height="20" Cursor="Hand"/>
+                        </Button>
+                    </StackPanel>
+                </Border>
+
+                <Border HorizontalAlignment="Center" Height="60" Background="{DynamicResource Background}"
+                VerticalAlignment="Top" Width="470" Margin="40,0,0,20"
+                CornerRadius="5" BorderBrush="#25A754" BorderThickness="1">
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Width="460">
+                        <Image HorizontalAlignment="Center" Margin="5,0,20,5" Source="/Images/Truck.png" Stretch="Uniform"
+                        Width="65" Height="43"/>
+                        <TextBlock Text="Vida Verde Distribuidora" Width="175" Foreground="White" Margin="10,0,0,0"
+                        FontFamily="Tahoma" FontSize="14" IsHitTestVisible="False" Height="20"/>
+
+                        <Image HorizontalAlignment="Center" Margin="30,0,0,0" Source="/Images/StarFilled.png" Stretch="Uniform"
+                        Width="15" Height="16"/>
+                        <Image HorizontalAlignment="Center" Margin="5,0,0,0" Source="/Images/StarFilled.png" Stretch="Uniform"
+                        Width="15" Height="16"/>
+                        <Image HorizontalAlignment="Center" Margin="5,0,0,0" Source="/Images/StarFilled.png" Stretch="Uniform"
+                        Width="15" Height="16"/>
+                        <Image HorizontalAlignment="Center" Margin="5,0,0,0" Source="/Images/StarFilled.png" Stretch="Uniform"
+                        Width="15" Height="16"/>
+                        
+
+                        <!-- Transformando a imagem em um botão -->
+                        <Button Tag="Vida Verde Distribuidora" Width="20" Height="20" Margin="45,0,0,0" Background="Transparent" BorderBrush="Transparent" Style="{StaticResource RoundedButtonStyle}" Click="Pedido_Click">
+                            <Image Source="/Images/Mais.png" Stretch="Uniform" Width="20" Height="20" Cursor="Hand"/>
+                        </Button>
+                    </StackPanel>
+                </Border>
+
+                <Border HorizontalAlignment="Center" Height="60" Background="{DynamicResource Background}"
+                VerticalAlignment="Top" Width="470" Margin="40,0,0,20"
+                CornerRadius="5" BorderBrush="#25A754" BorderThickness="1">
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Width="460">
+                        <Image HorizontalAlignment="Center" Margin="5,0,20,5" Source="/Images/Truck.png" Stretch="Uniform"
+                        Width="65" Height="43"/>
+                        <TextBlock Text="UrbanCity Distribuição" Width="175" Foreground="White" Margin="10,0,0,0"
+                        FontFamily="Tahoma" FontSize="14" IsHitTestVisible="False" Height="20"/>
+
+                        <Image HorizontalAlignment="Center" Margin="30,0,0,0" Source="/Images/StarFilled.png" Stretch="Uniform"
+                        Width="15" Height="16"/>
+                        <Image HorizontalAlignment="Center" Margin="5,0,0,0" Source="/Images/StarFilled.png" Stretch="Uniform"
+                        Width="15" Height="16"/>
+                        <Image HorizontalAlignment="Center" Margin="5,0,0,0" Source="/Images/StarFilled.png" Stretch="Uniform"
+                        Width="15" Height="16"/>
+                        <Image HorizontalAlignment="Center" Margin="5,0,0,0" Source="/Images/StarFilled.png" Stretch="Uniform"
+                        Width="15" Height="16"/>
+                        <Image HorizontalAlignment="Center" Margin="5,0,0,0" Source="/Images/StarFilled.png" Stretch="Uniform"
+                        Width="15" Height="16"/>
+
+
+                        <!-- Transformando a imagem em um botão -->
+                        <Button Tag="UrbanCity Distribuição" Width="20" Height="20" Margin="25,0,0,0" Background="Transparent" BorderBrush="Transparent" Style="{StaticResource RoundedButtonStyle}" Click="Pedido_Click">
+                            <Image Source="/Images/Mais.png" Stretch="Uniform" Width="20" Height="20" Cursor="Hand"/>
+                        </Button>
+                    </StackPanel>
+                </Border>
+
+                <Border HorizontalAlignment="Center" Height="60" Background="{DynamicResource Background}"
+                VerticalAlignment="Top" Width="470" Margin="40,0,0,20"
+                CornerRadius="5" BorderBrush="#25A754" BorderThickness="1">
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Width="460">
+                        <Image HorizontalAlignment="Center" Margin="5,0,20,5" Source="/Images/Truck.png" Stretch="Uniform"
+                        Width="65" Height="43"/>
+                        <TextBlock Text="NatureGrow Distribuidora" Width="175" Foreground="White" Margin="10,0,0,0"
+                        FontFamily="Tahoma" FontSize="14" IsHitTestVisible="False" Height="20"/>
+
+                        <Image HorizontalAlignment="Center" Margin="30,0,0,0" Source="/Images/StarFilled.png" Stretch="Uniform"
+                        Width="15" Height="16"/>
+                        <Image HorizontalAlignment="Center" Margin="5,0,0,0" Source="/Images/StarFilled.png" Stretch="Uniform"
+                        Width="15" Height="16"/>
+                        
+
+
+                        <!-- Transformando a imagem em um botão -->
+                        <Button Tag="NatureGrow Distribuidora" Width="20" Height="20" Margin="85,0,0,0" Background="Transparent" BorderBrush="Transparent" Style="{StaticResource RoundedButtonStyle}" Click="Pedido_Click">
+                            <Image Source="/Images/Mais.png" Stretch="Uniform" Width="20" Height="20" Cursor="Hand"/>
+                        </Button>
+                    </StackPanel>
+                </Border>
+
+                <Border HorizontalAlignment="Center" Height="60" Background="{DynamicResource Background}"
+                VerticalAlignment="Top" Width="470" Margin="40,0,0,20"
+                CornerRadius="5" BorderBrush="#25A754" BorderThickness="1">
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Width="460">
+                        <Image HorizontalAlignment="Center" Margin="5,0,20,5" Source="/Images/Truck.png" Stretch="Uniform"
+                        Width="65" Height="43"/>
+                        <TextBlock Text="FreshCity Distribuidora" Width="175" Foreground="White" Margin="10,0,0,0"
+                        FontFamily="Tahoma" FontSize="14" IsHitTestVisible="False" Height="20"/>
+
+                        <Image HorizontalAlignment="Center" Margin="30,0,0,0" Source="/Images/StarFilled.png" Stretch="Uniform"
+                        Width="15" Height="16"/>
+                        <Image HorizontalAlignment="Center" Margin="5,0,0,0" Source="/Images/StarFilled.png" Stretch="Uniform"
+                        Width="15" Height="16"/>
+                        <Image HorizontalAlignment="Center" Margin="5,0,0,0" Source="/Images/StarFilled.png" Stretch="Uniform"
+                        Width="15" Height="16"/>
+                        <Image HorizontalAlignment="Center" Margin="5,0,0,0" Source="/Images/StarFilled.png" Stretch="Uniform"
+                        Width="15" Height="16"/>
+
+
+
+                        <!-- Transformando a imagem em um botão -->
+                        <Button Tag="FreshCity Distribuidora" Width="20" Height="20" Margin="45,0,0,0" Background="Transparent" BorderBrush="Transparent" Style="{StaticResource RoundedButtonStyle}" Click="Pedido_Click">
+                            <Image Source="/Images/Mais.png" Stretch="Uniform" Width="20" Height="20" Cursor="Hand"/>
+                        </Button>
+                    </StackPanel>
+                </Border>
+
+                <Border HorizontalAlignment="Center" Height="60" Background="{DynamicResource Background}"
+                VerticalAlignment="Top" Width="470" Margin="40,0,0,20"
+                CornerRadius="5" BorderBrush="#25A754" BorderThickness="1">
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Width="460">
+                        <Image HorizontalAlignment="Center" Margin="5,0,20,5" Source="/Images/Truck.png" Stretch="Uniform"
+                        Width="65" Height="43"/>
+                        <TextBlock Text="GreenSky Suprimentos" Width="175" Foreground="White" Margin="10,0,0,0"
+                        FontFamily="Tahoma" FontSize="14" IsHitTestVisible="False" Height="20"/>
+
+                        <Image HorizontalAlignment="Center" Margin="30,0,0,0" Source="/Images/StarFilled.png" Stretch="Uniform"
+                        Width="15" Height="16"/>
+                        <Image HorizontalAlignment="Center" Margin="5,0,0,0" Source="/Images/StarFilled.png" Stretch="Uniform"
+                        Width="15" Height="16"/>
+                        <Image HorizontalAlignment="Center" Margin="5,0,0,0" Source="/Images/StarFilled.png" Stretch="Uniform"
+                        Width="15" Height="16"/>
+                        <Image HorizontalAlignment="Center" Margin="5,0,0,0" Source="/Images/StarFilled.png" Stretch="Uniform"
+                        Width="15" Height="16"/>
+                        <Image HorizontalAlignment="Center" Margin="5,0,0,0" Source="/Images/StarFilled.png" Stretch="Uniform"
+                        Width="15" Height="16"/>
+
+    
+
+
+                        <!-- Transformando a imagem em um botão -->
+                        <Button Tag="GreenSky Suprimentos" Width="20" Height="20" Margin="25,0,0,0" Background="Transparent" BorderBrush="Transparent" Style="{StaticResource RoundedButtonStyle}" Click="Pedido_Click">
+                            <Image Source="/Images/Mais.png" Stretch="Uniform" Width="20" Height="20" Cursor="Hand"/>
+                        </Button>
+                    </StackPanel>
+                </Border>
+            </WrapPanel>
+
+            
+            
+
+
+        </ScrollViewer>
+    </Grid>
+</Page>

@@ -1,0 +1,226 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>Pim_Desktop</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\Add.png" />
+    <None Remove="Images\AddImage.png" />
+    <None Remove="Images\Adubo.png" />
+    <None Remove="Images\Agua1.png" />
+    <None Remove="Images\Agua2.png" />
+    <None Remove="Images\Agua3.png" />
+    <None Remove="Images\Agua4.png" />
+    <None Remove="Images\AguaDesligado.png" />
+    <None Remove="Images\Arrow.png" />
+    <None Remove="Images\Bread.png" />
+    <None Remove="Images\Calendar.png" />
+    <None Remove="Images\Cloud.png" />
+    <None Remove="Images\Config.png" />
+    <None Remove="Images\Config1.png" />
+    <None Remove="Images\Delete.png" />
+    <None Remove="Images\Desligado.png" />
+    <None Remove="Images\Direction.png" />
+    <None Remove="Images\Donate.png" />
+    <None Remove="Images\Donations.png" />
+    <None Remove="Images\Drop.png" />
+    <None Remove="Images\Eco.png" />
+    <None Remove="Images\Ecofarm.png" />
+    <None Remove="Images\Email.png" />
+    <None Remove="Images\Facebook.png" />
+    <None Remove="Images\Fall1.png" />
+    <None Remove="Images\Fall2.png" />
+    <None Remove="Images\Feed.png" />
+    <None Remove="Images\Feed1.png" />
+    <None Remove="Images\FolhaBananaLeft.png" />
+    <None Remove="Images\FolhaBananaRight.png" />
+    <None Remove="Images\Fqa.png" />
+    <None Remove="Images\Google.png" />
+    <None Remove="Images\Grafico1.png" />
+    <None Remove="Images\Grafico2.png" />
+    <None Remove="Images\Grafico3.png" />
+    <None Remove="Images\Grafico4.png" />
+    <None Remove="Images\Grafico5.png" />
+    <None Remove="Images\Grafico6.png" />
+    <None Remove="Images\Group1.png" />
+    <None Remove="Images\Group2.png" />
+    <None Remove="Images\Group3.png" />
+    <None Remove="Images\Group4.png" />
+    <None Remove="Images\Group5.png" />
+    <None Remove="Images\Group6.png" />
+    <None Remove="Images\Hide.png" />
+    <None Remove="Images\HideCollapsed.png" />
+    <None Remove="Images\HideVisible.png" />
+    <None Remove="Images\Irrigation.png" />
+    <None Remove="Images\Left.png" />
+    <None Remove="Images\Lock.png" />
+    <None Remove="Images\LuzAmarela.png" />
+    <None Remove="Images\LuzAzul.png" />
+    <None Remove="Images\LuzAzulClaro.png" />
+    <None Remove="Images\LuzBranca.png" />
+    <None Remove="Images\LuzLaranja.png" />
+    <None Remove="Images\LuzRosa.png" />
+    <None Remove="Images\LuzRoxa.png" />
+    <None Remove="Images\LuzVerde.png" />
+    <None Remove="Images\LuzVermelha.png" />
+    <None Remove="Images\Mais.png" />
+    <None Remove="Images\Microsoft.png" />
+    <None Remove="Images\Mudas.png" />
+    <None Remove="Images\Noty.png" />
+    <None Remove="Images\PalmeiraLeft.png" />
+    <None Remove="Images\PalmeiraRight.png" />
+    <None Remove="Images\Pessoa.png" />
+    <None Remove="Images\Point.png" />
+    <None Remove="Images\Point2.png" />
+    <None Remove="Images\Rain1.png" />
+    <None Remove="Images\Rectangle.png" />
+    <None Remove="Images\Remove.png" />
+    <None Remove="Images\Report.png" />
+    <None Remove="Images\Sales.png" />
+    <None Remove="Images\Sales1.png" />
+    <None Remove="Images\Search.png" />
+    <None Remove="Images\Solo.png" />
+    <None Remove="Images\Spring1.png" />
+    <None Remove="Images\Spring2.png" />
+    <None Remove="Images\Star.png" />
+    <None Remove="Images\StarFilled.png" />
+    <None Remove="Images\Start1.png" />
+    <None Remove="Images\Summer1.png" />
+    <None Remove="Images\Summer2.png" />
+    <None Remove="Images\Temp.png" />
+    <None Remove="Images\Temps.png" />
+    <None Remove="Images\Tempst.png" />
+    <None Remove="Images\Truck.png" />
+    <None Remove="Images\User.png" />
+    <None Remove="Images\User2.png" />
+    <None Remove="Images\UserOther.png" />
+    <None Remove="Images\Vector1.png" />
+    <None Remove="Images\Vector2.png" />
+    <None Remove="Images\Vector3.png" />
+    <None Remove="Images\Vector4.png" />
+    <None Remove="Images\Vector5.png" />
+    <None Remove="Images\Voltar.png" />
+    <None Remove="Images\Water.png" />
+    <None Remove="Images\Water1.png" />
+    <None Remove="Images\Wind1.png" />
+    <None Remove="Images\Winter1.png" />
+    <None Remove="Images\Winter2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignColors" Version="3.1.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="5.1.0" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Add.png" />
+    <Resource Include="Images\AddImage.png" />
+    <Resource Include="Images\Adubo.png" />
+    <Resource Include="Images\Agua1.png" />
+    <Resource Include="Images\Agua2.png" />
+    <Resource Include="Images\Agua3.png" />
+    <Resource Include="Images\Agua4.png" />
+    <Resource Include="Images\AguaDesligado.png" />
+    <Resource Include="Images\Arrow.png" />
+    <Resource Include="Images\Bread.png" />
+    <Resource Include="Images\Calendar.png" />
+    <Resource Include="Images\Cloud.png" />
+    <Resource Include="Images\Config1.png" />
+    <Resource Include="Images\Delete.png" />
+    <Resource Include="Images\Desligado.png" />
+    <Resource Include="Images\Direction.png" />
+    <Resource Include="Images\Donate.png" />
+    <Resource Include="Images\Drop.png" />
+    <Resource Include="Images\Eco.png" />
+    <Resource Include="Images\Email.png" />
+    <Resource Include="Images\Facebook.png" />
+    <Resource Include="Images\Fall1.png" />
+    <Resource Include="Images\Fall2.png" />
+    <Resource Include="Images\Feed1.png" />
+    <Resource Include="Images\FolhaBananaLeft.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\FolhaBananaRight.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Fqa.png" />
+    <Resource Include="Images\Google.png" />
+    <Resource Include="Images\Grafico1.png" />
+    <Resource Include="Images\Grafico2.png" />
+    <Resource Include="Images\Grafico3.png" />
+    <Resource Include="Images\Grafico4.png" />
+    <Resource Include="Images\Grafico5.png" />
+    <Resource Include="Images\Grafico6.png" />
+    <Resource Include="Images\Group1.png" />
+    <Resource Include="Images\Group2.png" />
+    <Resource Include="Images\Group3.png" />
+    <Resource Include="Images\Group4.png" />
+    <Resource Include="Images\Group5.png" />
+    <Resource Include="Images\Group6.png" />
+    <Resource Include="Images\HideCollapsed.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\HideVisible.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Irrigation.png" />
+    <Resource Include="Images\Left.png" />
+    <Resource Include="Images\Lock.png" />
+    <Resource Include="Images\LuzAmarela.png" />
+    <Resource Include="Images\LuzAzul.png" />
+    <Resource Include="Images\LuzBranca.png" />
+    <Resource Include="Images\LuzLaranja.png" />
+    <Resource Include="Images\LuzRosa.png" />
+    <Resource Include="Images\LuzRoxa.png" />
+    <Resource Include="Images\LuzVerde.png" />
+    <Resource Include="Images\LuzVermelha.png" />
+    <Resource Include="Images\Mais.png" />
+    <Resource Include="Images\Mudas.png" />
+    <Resource Include="Images\Noty.png" />
+    <Resource Include="Images\PalmeiraLeft.png" />
+    <Resource Include="Images\PalmeiraRight.png" />
+    <Resource Include="Images\Pessoa.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Point.png" />
+    <Resource Include="Images\Point2.png" />
+    <Resource Include="Images\Remove.png" />
+    <Resource Include="Images\Report.png" />
+    <Resource Include="Images\Sales1.png" />
+    <Resource Include="Images\Search.png" />
+    <Resource Include="Images\Solo.png" />
+    <Resource Include="Images\Spring1.png" />
+    <Resource Include="Images\Spring2.png" />
+    <Resource Include="Images\Star.png" />
+    <Resource Include="Images\StarFilled.png" />
+    <Resource Include="Images\Start1.png" />
+    <Resource Include="Images\Summer1.png" />
+    <Resource Include="Images\Summer2.png" />
+    <Resource Include="Images\Temp.png" />
+    <Resource Include="Images\Tempst.png" />
+    <Resource Include="Images\Truck.png" />
+    <Resource Include="Images\User.png" />
+    <Resource Include="Images\User2.png" />
+    <Resource Include="Images\UserOther.png" />
+    <Resource Include="Images\Vector1.png" />
+    <Resource Include="Images\Vector2.png" />
+    <Resource Include="Images\Vector3.png" />
+    <Resource Include="Images\Vector4.png" />
+    <Resource Include="Images\Vector5.png" />
+    <Resource Include="Images\Voltar.png" />
+    <Resource Include="Images\Water1.png" />
+    <Resource Include="Images\Wind1.png" />
+    <Resource Include="Images\Winter1.png" />
+    <Resource Include="Images\Winter2.png" />
+  </ItemGroup>
+
+</Project>

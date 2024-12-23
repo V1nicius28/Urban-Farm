@@ -1,0 +1,63 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- LightTheme.xaml -->
+    <LinearGradientBrush x:Key="BackgroundGradient" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#234635" Offset="0.99"/>
+        <GradientStop Color="#0B2514" Offset="0.65"/>
+        <GradientStop Color="#173a29" Offset="0.14"/>
+    </LinearGradientBrush>
+
+    <Style x:Key="ToggleButton2Style" TargetType="ToggleButton">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToggleButton">
+                    <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#234635" TargetName="border"/>
+                            <Setter TargetName="border" Property="CornerRadius" Value="0,20,20,0"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Background" Value="#234635" TargetName="border"/>
+                            <Setter TargetName="border" Property="CornerRadius" Value="0,20,20,0"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ControlButtonStyle" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#234635" TargetName="border"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+    </Style>
+
+    <SolidColorBrush x:Key="Background" Color="#0B2514"/>
+    
+    <SolidColorBrush x:Key="Foreground" Color="White"/>
+    
+    <SolidColorBrush x:Key="BorderBrush" Color="#135C2E"/>
+
+    <LinearGradientBrush x:Key="BackgroundLinear" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#0B2514" Offset="0.72" />
+        <GradientStop Color="#25A754" Offset="0.73" />
+    </LinearGradientBrush>
+
+</ResourceDictionary>

@@ -1,0 +1,27 @@
+﻿<Window x:Class="Pim_Desktop.Mensagem"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pim_Desktop"
+        mc:Ignorable="d"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Title="Mensagem" Height="160" Width="210">
+    <Grid>
+        <Border Background="{DynamicResource Background}" BorderBrush="White" BorderThickness="1" CornerRadius="20"/>
+
+        <ScrollViewer VerticalScrollBarVisibility="Hidden" Margin="5,10,5,60" >
+            <TextBlock Name="MensagemTextBlock" Height="auto" Width="200" TextWrapping="Wrap" TextAlignment="Center"
+                   VerticalAlignment="Center" HorizontalAlignment="Center" 
+                   FontSize="14" Margin="0,0,0,40" Foreground="White" FontFamily="tahoma"/>
+        </ScrollViewer>
+            
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20">
+            <Button Name="CancelarButton" Content="Cancelar" Height="25" Width="80" Margin="10,0" Click="CancelarButton_Click" Style="{StaticResource RoundedButtonStyle}" BorderBrush="Transparent"/>
+            <Button Name="AceitarButton" Content="Aceitar" Height="25" Width="80" Margin="10,0" Click="AceitarButton_Click" Style="{StaticResource RoundedButtonStyle}" BorderBrush="Transparent" Background="#25A754" Foreground="White"/>
+        </StackPanel>
+    </Grid>
+</Window>

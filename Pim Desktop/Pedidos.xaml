@@ -1,0 +1,122 @@
+﻿<Window x:Class="Pim_Desktop.Pedidos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pim_Desktop"
+        mc:Ignorable="d"
+        Title="Pedidos" Height="700" Width="770"
+        Background="{DynamicResource Background}"
+        BorderBrush="#25A754"
+        BorderThickness="1"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Button Content="Fechar" Grid.Row="0" Width="70" Height="30" HorizontalAlignment="Left" Margin="690,0,0,650" Click="Close_Click"
+        Style="{StaticResource RoundedButtonStyle}" Background="#ED4245" Foreground="White" BorderThickness="0" FontSize="14"/>
+
+        <TextBlock Text="Local de entrega" FontSize="14" FontFamily="Tahoma" Foreground="White" Margin="0,105,270,0" Height="20" Width="110" VerticalAlignment="Top"/>
+
+        <Border Name="NomeBorder" HorizontalAlignment="Center" Height="34" Background="{DynamicResource Background}"
+        VerticalAlignment="Top" Width="384"  Margin="0,130,0,0" 
+        CornerRadius="5" BorderBrush="White" BorderThickness="1"/>
+
+        <Image HorizontalAlignment="Center" Margin="0,139,345,0" Source="/Images/Point2.png" Stretch="Uniform"
+        VerticalAlignment="Top" Width="15" Height="16"/>
+
+        <TextBox Name="LocalTextBox" Style="{StaticResource CustomTextBoxStyle}" Width="320" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Tahoma"
+        FontSize="12" GotFocus="LocalBox_GotFocus"  LostFocus="LocalBox_LostFocus" Margin="0,140,0,0"/>
+
+        <TextBlock Name="LocalText" Text="Marque o lugar..." Width="105" Foreground="White" VerticalAlignment="Top" FontFamily="Tahoma"
+        FontSize="12" IsHitTestVisible="False" Margin="85,140,300,0"/>
+
+        <TextBlock Text="Sementes e Mudas" FontSize="14" FontFamily="Tahoma" Foreground="White" Margin="0,205,260,0" Height="20" Width="120" VerticalAlignment="Top"/>
+
+        <Border Name="SementesBorder" HorizontalAlignment="Center" Height="34" Background="{DynamicResource Background}"
+        VerticalAlignment="Top" Width="384"  Margin="0,230,0,0" 
+        CornerRadius="5" BorderBrush="White" BorderThickness="1"/>
+
+        <Image HorizontalAlignment="Center" Margin="0,241,347,0" Source="/Images/Mudas.png" Stretch="Uniform"
+        VerticalAlignment="Top" Width="15" Height="16"/>
+
+        <TextBox Name="SementeTextBox" Style="{StaticResource CustomTextBoxStyle}" Width="320" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Tahoma"
+        FontSize="12" GotFocus="SementeBox_GotFocus"  LostFocus="SementeBox_LostFocus" Margin="0,240,0,0"/>
+
+        <TextBlock Name="SementeText" Text="Marque o tipo..." Width="115" Foreground="White" VerticalAlignment="Top" FontFamily="Tahoma"
+        FontSize="12" IsHitTestVisible="False" Margin="95,240,300,0"/>
+
+        <TextBlock Text="Substratos e solo especial" FontSize="14" FontFamily="Tahoma" Foreground="White" Margin="0,309,210,0" Height="20" Width="170" VerticalAlignment="Top"/>
+
+        <Border Name="SoloBorder" HorizontalAlignment="Center" Height="34" Background="{DynamicResource Background}"
+        VerticalAlignment="Top" Width="384"  Margin="0,330,0,0" 
+        CornerRadius="5" BorderBrush="White" BorderThickness="1"/>
+
+        <Image HorizontalAlignment="Center" Margin="0,340,347,0" Source="/Images/Solo.png" Stretch="Uniform"
+         VerticalAlignment="Top" Width="15" Height="16"/>
+
+        <TextBox Name="SoloTextBox" Style="{StaticResource CustomTextBoxStyle}" Width="320" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Tahoma"
+        FontSize="12" GotFocus="SoloBox_GotFocus"  LostFocus="SoloBox_LostFocus" Margin="0,340,0,0"/>
+
+        <TextBlock Name="SoloText" Text="Marque o tipo..." Width="115" Foreground="White" VerticalAlignment="Top" FontFamily="Tahoma"
+        FontSize="12" IsHitTestVisible="False" Margin="95,340,300,0"/>
+
+        <TextBlock Text="Fertilizantes e adubos" FontSize="14" FontFamily="Tahoma" Foreground="White" Margin="0,400,240,0" Height="20" Width="140" VerticalAlignment="Top"/>
+
+        <Border Name="FertilizantesBorder" HorizontalAlignment="Center" Height="34" Background="{DynamicResource Background}"
+        VerticalAlignment="Top" Width="384"  Margin="0,425,0,0" 
+        CornerRadius="5" BorderBrush="White" BorderThickness="1"/>
+
+        <Image HorizontalAlignment="Center" Margin="0,435,347,0" Source="/Images/Adubo.png" Stretch="Uniform"
+        VerticalAlignment="Top" Width="15" Height="16"/>
+
+        <TextBox Name="FertilizantesTextBox" Style="{StaticResource CustomTextBoxStyle}" Width="320" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Tahoma"
+        FontSize="12" GotFocus="FertilizantesBox_GotFocus"  LostFocus="FertilizantesBox_LostFocus" Margin="0,435,0,0"/>
+
+        <TextBlock Name="FertilizantesText" Text="Marque o tipo..." Width="115" Foreground="White" VerticalAlignment="Top" FontFamily="Tahoma"
+        FontSize="12" IsHitTestVisible="False" Margin="95,436,300,0"/>
+
+        <Button Name="Enviar" HorizontalAlignment="Center" VerticalAlignment="Top" Width="204" Height="38"
+        Background="#25A754" Margin="0,560,0,0" BorderBrush="Transparent" 
+        BorderThickness="0"  Foreground="White" FontSize="16" Content="Enviar"
+        FontFamily="Tahoma" Style="{StaticResource RoundedButtonStyle}" Click="Enviar_Click">
+        </Button>
+
+        <TextBlock Text="Quantidade:" FontSize="14" FontFamily="Tahoma" Foreground="White" Margin="0,276,270,0" Height="20" Width="110" VerticalAlignment="Top"/>
+
+        <Border HorizontalAlignment="Center" Height="25" Background="#25A754"
+        VerticalAlignment="Top" Width="85"  Margin="0,272,125,0" CornerRadius="5"/>
+
+        <TextBox Name="QuantSementes" Text="100 Unidades" Style="{StaticResource CustomTextBoxStyle}" Width="80" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Tahoma"
+        FontSize="12" Margin="0,276,125,0"/>
+
+        <TextBlock Text="Quantidade:" FontSize="14" FontFamily="Tahoma" Foreground="White" Margin="0,376,270,0" Height="20" Width="110" VerticalAlignment="Top"/>
+
+        <Border HorizontalAlignment="Center" Height="25" Background="#25A754"
+        VerticalAlignment="Top" Width="70"  Margin="0,372,140,0" CornerRadius="5"/>
+
+        <TextBox Name="QuantSolo" Text="1Kg" Style="{StaticResource CustomTextBoxStyle}" Width="35" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Tahoma"
+        FontSize="12" Margin="0,376,140,0"/>
+
+        <TextBlock Text="Quantidade:" FontSize="14" FontFamily="Tahoma" Foreground="White" Margin="0,476,270,0" Height="20" Width="110" VerticalAlignment="Top"/>
+
+        <Border HorizontalAlignment="Center" Height="25" Background="#25A754"
+        VerticalAlignment="Top" Width="70"  Margin="0,472,140,0" CornerRadius="5"/>
+
+        <TextBox Name="QuantAdubo" Text="1Kg" Style="{StaticResource CustomTextBoxStyle}" Width="35" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Tahoma"
+        FontSize="12" Margin="0,476,140,0"/>
+
+        <TextBlock x:Name="FornecedorTextBlock" FontSize="16" FontWeight="Bold" Height="30"
+        Foreground="#25A754" HorizontalAlignment="Center" Margin="0,0,0,580"/>
+
+
+        <!-- Popup para aviso -->
+        <Popup x:Name="AvisoPopup" Placement="Top" StaysOpen="False" AllowsTransparency="True">
+            <Border Background="#25A754" BorderBrush="Transparent" BorderThickness="1" CornerRadius="5" Padding="10">
+                <TextBlock x:Name="MensagemPopup" Foreground="White" FontSize="14" TextWrapping="Wrap"/>
+            </Border>
+        </Popup>
+        
+        
+    </Grid>
+</Window>

@@ -1,0 +1,177 @@
+﻿<Window x:Class="Pim_Desktop.TelaInicio"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pim_Desktop"
+        mc:Ignorable="d"
+        Title="TelaInicio"
+        Height="800" 
+        Width="1250"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        MouseDown="Window_MouseDown"
+        WindowStartupLocation="CenterScreen">
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0" ResizeBorderThickness="5" />
+    </WindowChrome.WindowChrome>
+
+
+    <Grid Background="{DynamicResource BackgroundGradient}">
+                
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="280" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="150"/>
+                
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition />
+
+            </Grid.RowDefinitions>
+
+
+            <DockPanel VerticalAlignment="Top" Height="30" Background="Transparent" MouseLeftButtonDown="Border_MouseLeftButtonDown" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3">
+                <!-- Botão Fechar -->
+                <Button Content="⨉" DockPanel.Dock="Right" Width="30" Style="{StaticResource CloseButtonStyle}" FontSize="14"
+                        Click="CloseButton_Click" />
+
+                <!-- Botão Maximizar/Restaurar -->
+                <Button Name="MaximizeButton" Content="⃞" DockPanel.Dock="Right" Width="30" Style="{DynamicResource ControlButtonStyle}" FontSize="14"
+                        Click="MaximizeButton_Click" />
+
+                <!-- Botão Minimizar -->
+                <Button Content="➖" DockPanel.Dock="Right" Width="30" Style="{DynamicResource ControlButtonStyle}" FontSize="10"
+                        Click="MinimizeButton_Click" />
+
+                <!-- Título -->
+                <TextBlock VerticalAlignment="Center" Margin="10,0,0,0" />
+            </DockPanel>
+
+            <TextBlock HorizontalAlignment="Center" Margin="0,120,0,0" TextWrapping="Wrap" Grid.Row="1"
+                       VerticalAlignment="Top" Foreground="White" FontSize="26" FontFamily="Tahoma" FontWeight="Bold">
+            <Run Text="Eco" Foreground="#25A754" /><Run Text="Farm" />
+            </TextBlock>
+
+            <Border x:Name="NavigationPanel" Background="{DynamicResource Background}" BorderBrush="{DynamicResource BorderBrush}" Height="377" Width="243" Grid.Row="1" Grid.ColumnSpan="1" CornerRadius="0,20,20,0" BorderThickness="1" Margin="-39,260,0,0" VerticalAlignment="Top">
+                <!-- Lateral de Navegação -->
+                <StackPanel x:Name="NavigationStackPanel" Width="243" Height="377" Margin="0,0,0,0" HorizontalAlignment="Center">
+
+                    <ToggleButton x:Name="InicioButton" Foreground="{DynamicResource Foreground}" Background="Transparent" Height="75" Width="243"
+                                  FontSize="20" Style="{DynamicResource ToggleButton2Style}" HorizontalAlignment="Left"
+                                  Click="InicioButton_Click">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Source="/Images/Start1.png" Width="42" Height="33" Margin="0,0,10,0"/>
+                            <TextBlock Text="Início" VerticalAlignment="Center" Margin="0,0,73,0"/>
+                        </StackPanel>
+                    </ToggleButton>
+
+                    <ToggleButton x:Name="VendasButton" Foreground="{DynamicResource Foreground}" Background="Transparent" Height="75" Width="243"
+                                  FontSize="20" Style="{DynamicResource ToggleButton2Style}" HorizontalAlignment="Left"
+                                  Click="VendasButton_Click">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Source="/Images/Sales1.png" Width="42" Height="33" Margin="0,0,10,0"/>
+                            <TextBlock Text="Vendas" VerticalAlignment="Center" Margin="0,0,60,0"/>
+                        </StackPanel>
+                    </ToggleButton>
+
+                    <ToggleButton x:Name="DoacoesButton" Foreground="{DynamicResource Foreground}" Background="Transparent" Height="75" Width="243"
+                                  FontSize="20" Style="{DynamicResource ToggleButton2Style}" HorizontalAlignment="Left"
+                                  Click="DoacoesButton_Click">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Source="/Images/Donate.png" Width="42" Height="33" Margin="0,0,10,0"/>
+                            <TextBlock Text="Doações" VerticalAlignment="Center" Margin="0,0,44,0"/>
+                        </StackPanel>
+                    </ToggleButton>
+
+                    <ToggleButton x:Name="FeedbackButton" Foreground="{DynamicResource Foreground}" Background="Transparent" Height="75" Width="243"
+                                  FontSize="20" Style="{DynamicResource ToggleButton2Style}" HorizontalAlignment="Left"
+                                  Click="FeedbackButton_Click">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Source="/Images/Feed1.png" Width="42" Height="33" Margin="0,0,10,0"/>
+                            <TextBlock Text="Feedback" VerticalAlignment="Center" Margin="0,0,43,0"/>
+                        </StackPanel>
+                    </ToggleButton>
+
+                    <ToggleButton x:Name="ConfiguracaoButton" Foreground="{DynamicResource Foreground}" Background="Transparent" Height="75" Width="243"
+                                  FontSize="20" Style="{DynamicResource ToggleButton2Style}" HorizontalAlignment="Left"
+                                  Click="ConfiguracaoButton_Click">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Source="/Images/Config1.png" Width="42" Height="33" Margin="0,0,10,0"/>
+                            <TextBlock Text="Configurações" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </ToggleButton>
+
+                </StackPanel>
+            </Border>
+
+
+
+            <Border Background="{DynamicResource Background}" BorderBrush="{DynamicResource BorderBrush}" Height="450" Width="130" Grid.Column="2" Grid.RowSpan="2" CornerRadius="20,0,0,20" BorderThickness="1" Margin="21,256,0,0" VerticalAlignment="Top">
+                
+                <StackPanel Margin="0,0,0,0" Width="130" HorizontalAlignment="Center">
+
+                    <Button Content="🔄" Click="OnUpdateWeatherClick" Width="24" Height="24" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="110,-3,0,15" FontSize="16"
+                            Style="{StaticResource RoundedButtonStyle}" Background="Transparent" Foreground="#25A754" BorderBrush="Transparent"/>
+
+                    <StackPanel Orientation="Horizontal" Height="60" ToolTip="Temperatura" ToolTipService.InitialShowDelay="0">
+                        <Image Source="/images/Temp.png" Width="24" Height="24" Margin="19,0,0,35"/>
+                        <TextBlock Text="{Binding Temperature}" Foreground="{DynamicResource Foreground}" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock Text="°C" Foreground="{DynamicResource Foreground}" Margin="0,1,0,0" FontSize="15" FontWeight="Bold"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Height="60" ToolTip="Sensação Termica" ToolTipService.InitialShowDelay="0">
+                        <Image Source="/images/Tempst.png" Width="25" Height="17" Margin="18,0,0,35"/>
+                        <TextBlock Text="{Binding ApparentTemperature}" Foreground="{DynamicResource Foreground}" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock Text="°C" Foreground="{DynamicResource Foreground}" Margin="0,1,0,0" FontSize="15" FontWeight="Bold"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Height="60" ToolTip="Humidade" ToolTipService.InitialShowDelay="0">
+                        <Image Source="/images/Water1.png" Width="24" Height="24" Margin="19,0,0,35"/>
+                        <TextBlock Text="{Binding Humidity}" Foreground="{DynamicResource Foreground}" FontSize="18" FontWeight="Bold" Margin="4,0,0,0"/>
+                        <TextBlock Text="%" Foreground="{DynamicResource Foreground}" Margin="0,3,0,0" FontSize="15" FontWeight="Bold"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Height="60" ToolTip="Vento" ToolTipService.InitialShowDelay="0">
+                        <Image Source="/images/Wind1.png" Width="20" Height="20" Margin="21,0,0,35"/>
+                        <TextBlock Text="{Binding WindSpeed}" Foreground="{DynamicResource Foreground}" FontSize="18" FontWeight="Bold" Margin="3,0,0,0"/>
+                        <TextBlock Text="km/h" Foreground="{DynamicResource Foreground}" Margin="0,3,0,0" FontSize="15" FontWeight="Bold" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Height="60" ToolTip="Direção do Vento" ToolTipService.InitialShowDelay="0">
+                        <Image Source="/images/Direction.png" Width="20" Height="20" Margin="21,0,0,32"/>
+                        <TextBlock Text="{Binding WindDirection}" Foreground="{DynamicResource Foreground}" FontSize="18" FontWeight="Bold" Margin="3,0,0,0"/>
+                        <TextBlock Text="°" Foreground="{DynamicResource Foreground}" Margin="0,3,0,0" FontSize="15" FontWeight="Bold" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Height="60" ToolTip="Cobertura de Nuvens" ToolTipService.InitialShowDelay="0">
+                        <Image Source="/images/Cloud.png" Width="24" Height="24" Margin="21,0,0,35"/>
+                        <TextBlock Text="{Binding CloudCover}" Foreground="{DynamicResource Foreground}" FontSize="18" FontWeight="Bold" Margin="4,0,0,0"/>
+                        <TextBlock Text="%" Foreground="{DynamicResource Foreground}" Margin="0,3,0,0" FontSize="15" FontWeight="Bold"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Height="60" ToolTip="Chuva" ToolTipService.InitialShowDelay="0">
+                        <Image Source="/images/Drop.png" Width="23" Height="23" Margin="22,0,0,35"/>
+                        <TextBlock Text="{Binding Rain}" Foreground="{DynamicResource Foreground}" FontSize="18" FontWeight="Bold" Margin="5,0,0,0"/>
+                        <TextBlock Text="mm" Foreground="{DynamicResource Foreground}" Margin="0,3,0,0" FontSize="15" FontWeight="Bold"/>
+                    </StackPanel>
+
+
+                </StackPanel>
+             </Border>
+            
+            
+             <!-- Área de Conteúdo onde as Páginas serão carregadas -->
+             <Frame x:Name="MainFrame" Grid.Column="1" Grid.Row="1" Margin="0,20,10,20" NavigationUIVisibility="Hidden"/>
+
+               
+        </Grid>
+    </Grid>
+</Window>
+

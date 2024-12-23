@@ -1,0 +1,80 @@
+﻿<Window x:Class="Pim_Desktop.LoginGoogle"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pim_Desktop"
+        mc:Ignorable="d"
+        Title="LoginGoogle" Height="300" Width="650"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
+
+    <Border Background="White" CornerRadius="20" Margin="0,0,0,22">
+        <Grid Margin="0,0,0,21">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="150"/>
+                <RowDefinition Height="150"/>
+            </Grid.RowDefinitions>
+
+
+
+            <Image Source="/Images/Google.png" Width="26" Margin="8,7,616,149" Grid.Row="0" Grid.RowSpan="2"/>
+
+            <TextBlock Text="Fazer login com google" Foreground="#464948" FontSize="12" FontWeight="Bold" Margin="37,10,428,0" Grid.Row="0"/>
+
+            <TextBlock Text="Escolha uma conta" Foreground="#1F1F1F" FontSize="20" FontWeight="Bold" Margin="37,80,386,45" Grid.Row="1"/>
+
+
+
+            <TextBlock FontSize="12" Grid.Row="1" Margin="37,121,401,1">
+            <Run Text="para prosseguir para " Foreground="#464948"/>
+            <Run Text="Ecofarm" Foreground="#0B57D0"/>
+            </TextBlock>
+
+            <Button Height="48" Background="Transparent" BorderThickness="0" Margin="334,51,28,51" Click="Login_Click" Grid.Row="1" Style="{StaticResource GoogleButtonStyle}">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Width="228">
+                    <Image Source="/Images/User.png" Width="37" Height="33" Margin="-25,0,20,0"/>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                        <TextBlock Text="Admin" FontSize="14" FontFamily="Tahoma" Foreground="#464948" Width="122" Margin="-19,0,0,0"/>
+                        <TextBlock Text="Admin123@gmail.com" FontSize="12" FontFamily="Tahoma" Foreground="#8A8E8F" Height="17" Width="134" Margin="-7,0,0,0"/>
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+
+            <Button Background="Transparent" BorderThickness="0" Margin="334,100,28,8" Grid.Row="1" Style="{StaticResource GoogleButtonStyle}">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Width="272">
+                    <Image Source="/Images/UserOther.png" Width="30" Height="30"/>
+                    <StackPanel Orientation="Vertical" Height="16">
+                        <TextBlock Text="Usar outra conta" FontSize="12" FontFamily="Tahoma" Foreground="#464948" Height="15" Width="92" Margin="16,0,0,0"/>
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+
+            <Border Height="1" Background="#C4C7C5" Grid.Row="1" Margin="0,4,0,144" SnapsToDevicePixels="True" />
+
+            <Border Height="1" Background="#C4C7C5" Grid.Row="1" Margin="339,98,28,50" SnapsToDevicePixels="True"/>
+
+            <Border Height="1" Background="#C4C7C5" Grid.Row="1" Margin="340,142,28,7" SnapsToDevicePixels="True"/>
+
+
+
+
+            <TextBlock FontSize="10" Grid.Row="2" Margin="339,44,-39,75">
+            <Run Text="Consulte a" Foreground="#464948"/>
+            <Run Text="Política de Privacidade" Foreground="#0B57D0"/>
+            <Run Text="e os" Foreground="#464948"/>
+            <Run Text="Termos de serviço" Foreground="#0B57D0"/>
+            <Run Text="do app" Foreground="#464948"/>
+            <LineBreak/>
+            <Run Text="EcoFarm antes de usá-lo" Foreground="#464948"/>
+            </TextBlock>
+
+
+
+        </Grid>
+    </Border>
+</Window>
+

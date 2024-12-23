@@ -1,0 +1,177 @@
+﻿<Page x:Class="Pim_Desktop.PageIrrigacao"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Pim_Desktop"
+      mc:Ignorable="d" 
+      d:DesignHeight="730" d:DesignWidth="800"
+      Title="PageIrrigacao">
+
+    <Grid>
+        <!-- Borda com gradiente -->
+        <Border BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" CornerRadius="20" Margin="10">
+
+
+            <!-- Contêiner para as imagens -->
+            <Grid>
+                <Viewbox Stretch="UniformToFill">
+                    <Image Source="Images/PalmeiraLeft.png" RenderTransformOrigin="4.0,-27.0">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="1.317"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                </Viewbox>
+
+                <Viewbox Stretch="UniformToFill">
+                    <Image Source="Images/PalmeiraRight.png" Margin="0,0,0,0" RenderTransformOrigin="2.3,6.8">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="5.917"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                </Viewbox>
+            </Grid>
+        </Border>
+
+        <Border HorizontalAlignment="Center" Height="34" Background="#25A754"
+        VerticalAlignment="Top" Width="300" Margin="0,60,0,0"
+        CornerRadius="5" BorderBrush="Transparent" BorderThickness="0">
+            <TextBlock Text="Irrigação" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,0"
+                Foreground="White" FontSize="16"/>
+        </Border>
+
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="32" Height="30" Background="Transparent"
+        Margin="40,40,0,0" Style="{StaticResource RoundedButtonStyle}" BorderBrush="Transparent" Click="Voltar_Click">
+            <Image Source="Images/Voltar.png" Width="30" Height="30"/>
+        </Button>
+
+        <Image Source="Images/Irrigation.png" Width="410" Height="270" Margin="0,140,0,0" VerticalAlignment="Top"/>
+
+        <Border x:Name="Border1" HorizontalAlignment="Center" Height="30" Background="#25A754"
+        VerticalAlignment="Top" Width="75" Margin="0,400,250,0"
+        CornerRadius="5" BorderBrush="Transparent" BorderThickness="0">
+            <ComboBox x:Name="ComboBox1" Width="70" Height="23" Margin="0,0,0,0" FontSize="16"
+               Foreground="White" SelectedIndex="3" 
+               Style="{StaticResource CustomComboBoxStyle2}">
+                <ComboBoxItem Content="0 Min" Background="#25A754"/>
+                <ComboBoxItem Content="5 Min" Background="#25A754"/>
+                <ComboBoxItem Content="10 Min" Background="#25A754"/>
+                <ComboBoxItem Content="15 Min" Background="#25A754"/>
+                <ComboBoxItem Content="20 Min" Background="#25A754"/>
+                <ComboBoxItem Content="25 Min" Background="#25A754"/>
+                <ComboBoxItem Content="30 Min" Background="#25A754"/>
+            </ComboBox>
+        </Border>
+
+        <TextBlock Text="Duração" HorizontalAlignment="Center" VerticalAlignment="Top"
+        Foreground="White" FontSize="16" Margin="0,370,254,0" FontFamily="tahoma"/>
+        <Image Source="Images/Arrow.png" Width="10" Height="10" Margin="0,412,200,0" VerticalAlignment="Top"/>
+
+        <Border x:Name="Border2" HorizontalAlignment="Center" Height="30" Background="#25A754"
+        VerticalAlignment="Top" Width="75" Margin="0,480,250,0"
+        CornerRadius="5" BorderBrush="Transparent" BorderThickness="0">
+            <ComboBox x:Name="ComboBox2" Width="70" Height="23" Margin="0,0,0,0" FontSize="16"
+                Foreground="White" SelectedIndex="3" 
+                Style="{StaticResource CustomComboBoxStyle2}">
+                <ComboBoxItem Content="6 h" Background="#25A754"/>
+                <ComboBoxItem Content="8 h" Background="#25A754"/>
+                <ComboBoxItem Content="10 h" Background="#25A754"/>
+                <ComboBoxItem Content="12 h" Background="#25A754"/>
+                <ComboBoxItem Content="14 h" Background="#25A754"/>
+                <ComboBoxItem Content="16 h" Background="#25A754"/>
+                <ComboBoxItem Content="18 h" Background="#25A754"/>
+                <ComboBoxItem Content="20 h" Background="#25A754"/>
+                <ComboBoxItem Content="22 h" Background="#25A754"/>
+            </ComboBox>
+        </Border>
+
+        <TextBlock Text="Horário Ligar" HorizontalAlignment="Center" VerticalAlignment="Top"
+        Foreground="White" FontSize="16" Margin="0,450,250,0" FontFamily="tahoma"/>
+        <Image Source="Images/Arrow.png" Width="10" Height="10" Margin="0,492,200,0" VerticalAlignment="Top"/>
+
+        <Border x:Name="Border3" HorizontalAlignment="Center" Height="30" Background="#25A754"
+        VerticalAlignment="Top" Width="75" Margin="0,560,250,0"
+        CornerRadius="5" BorderBrush="Transparent" BorderThickness="0">
+            <ComboBox x:Name="ComboBox3" Width="70" Height="23" Margin="0,0,0,0" FontSize="16"
+                Foreground="White" SelectedIndex="3" 
+                Style="{StaticResource CustomComboBoxStyle2}">
+                <ComboBoxItem Content="0 Min" Background="#25A754"/>
+                <ComboBoxItem Content="10 Min" Background="#25A754"/>
+                <ComboBoxItem Content="20 Min" Background="#25A754"/>
+                <ComboBoxItem Content="30 Min" Background="#25A754"/>
+                <ComboBoxItem Content="40 Min" Background="#25A754"/>
+                <ComboBoxItem Content="50 Min" Background="#25A754"/>
+                <ComboBoxItem Content="60 Min" Background="#25A754"/>
+            </ComboBox>
+        </Border>
+
+        <TextBlock Text="Atraso" HorizontalAlignment="Center" VerticalAlignment="Top"
+        Foreground="White" FontSize="16" Margin="0,530,255,0" FontFamily="tahoma"/>
+        <Image Source="Images/Arrow.png" Width="10" Height="10" Margin="0,572,200,0" VerticalAlignment="Top"/>
+
+        <Border x:Name="Border4" HorizontalAlignment="Center" Height="30" Background="#25A754"
+        VerticalAlignment="Top" Width="75" Margin="235,580,0,0"
+        CornerRadius="5" BorderBrush="Transparent" BorderThickness="0">
+            <ComboBox x:Name="ComboBox4" Width="70" Height="23" Margin="0,0,0,0" FontSize="16"
+            Foreground="White" SelectedIndex="3" 
+            Style="{StaticResource CustomComboBoxStyle2}">
+                <ComboBoxItem Content="1/4" Background="#25A754"/>
+                <ComboBoxItem Content="2/4" Background="#25A754"/>
+                <ComboBoxItem Content="3/4" Background="#25A754"/>
+                <ComboBoxItem Content="4/4" Background="#25A754"/>
+            </ComboBox>
+        </Border>
+
+        <TextBlock Text="Água" HorizontalAlignment="Center" VerticalAlignment="Top"
+        Foreground="White" FontSize="16" Margin="230,550,0,0" FontFamily="tahoma"/>
+        <Image Source="Images/Arrow.png" Width="10" Height="10" Margin="265,592,0,0" VerticalAlignment="Top"/>
+
+        <ToggleButton x:Name="MeuToggleSwitch" Width="40" Height="15" Margin="0,598,0,0" VerticalAlignment="Top" IsChecked="True" Checked="ToggleSwitch_Checked" Unchecked="ToggleSwitch_Unchecked">
+            <ToggleButton.Style>
+                <Style TargetType="ToggleButton">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ToggleButton">
+                                <Border x:Name="SwitchBorder" Background="#111010" CornerRadius="8" Width="40" Height="15">
+                                    <Grid>
+                                        <Ellipse x:Name="SwitchKnob" Fill="White" Width="15" Height="15" HorizontalAlignment="Left"/>
+                                    </Grid>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsChecked" Value="True">
+                                        <Setter TargetName="SwitchBorder" Property="Background" Value="#25A754"/>
+                                        <Setter TargetName="SwitchKnob" Property="HorizontalAlignment" Value="Right"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ToggleButton.Style>
+        </ToggleButton>
+
+        <Image x:Name="MinhaImagem" Source="Images/Agua4.png" Width="186" Height="173" Margin="230,370,0,0" VerticalAlignment="Top"/>
+
+        <TextBlock Text="On" HorizontalAlignment="Center" VerticalAlignment="Top"
+        Foreground="White" FontSize="16" Margin="70,595,0,0" FontFamily="tahoma"/>
+
+        <TextBlock Text="Off" HorizontalAlignment="Center" VerticalAlignment="Top"
+        Foreground="White" FontSize="16" Margin="0,595,75,0" FontFamily="tahoma"/>
+
+        <Image Source="Images/Vector1.png" Width="30" Height="223" Margin="0,360,0,0" VerticalAlignment="Top"/>
+
+        <Image Source="Images/Vector2.png" Width="410" Height="30" Margin="0,360,0,0" VerticalAlignment="Top"/>
+
+
+    </Grid>
+</Page>
