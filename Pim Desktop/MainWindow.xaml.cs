@@ -218,10 +218,13 @@ namespace Pim_Desktop
             LoginWindow.Show(); // Abre a nova janela e espera o fechamento
         }
 
-        private void Facebook_Click(object sender, RoutedEventArgs e)
+        private void Convidado_Click(object sender, RoutedEventArgs e)
         {
-            LoginFacebook LoginWindow = new LoginFacebook();
+            TelaInicio LoginWindow = new TelaInicio();
             LoginWindow.Show(); // Abre a nova janela e espera o fechamento
+            Application.Current.MainWindow.Close(); // Fecha a MainWindow
+            this.Close();
+
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -232,12 +235,6 @@ namespace Pim_Desktop
             {
                 loginGoogle.Close(); // Fecha a janela de Login Google
             }
-            // Verifica se há uma janela do tipo LoginFacebook aberta e a fecha
-            var loginFacebook = Application.Current.Windows.OfType<LoginFacebook>().FirstOrDefault();
-            if (loginFacebook != null)
-            {
-                loginFacebook.Close(); // Fecha a janela do Login Facebook
-            }
         }
 
         private void MainWindow_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
@@ -247,13 +244,8 @@ namespace Pim_Desktop
             {
                 google.Close();
             }
-
-            var facebook = Application.Current.Windows.OfType<LoginFacebook>().FirstOrDefault();
-            if (facebook != null)
-            {
-                facebook.Close();
-            }
         }
+
     }
 }
 

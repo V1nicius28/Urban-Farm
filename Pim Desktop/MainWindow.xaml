@@ -194,10 +194,9 @@
             </StackPanel>
         </Button>
 
-        <Button Width="166" Height="48" BorderBrush="White" Background="#FF111010" BorderThickness="1" Style="{StaticResource RoundedButtonStyle}" Margin="215,578,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Facebook_Click">
+        <Button Width="166" Height="48" BorderBrush="White" Background="#FF111010" BorderThickness="1" Style="{StaticResource RoundedButtonStyle}" Margin="215,578,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Convidado_Click">
             <StackPanel Orientation="Horizontal" >
-                <Image Source="/Images/Facebook.png" Width="48" Height="40" Margin="0,0,24,0"/>
-                <TextBlock Text="Facebook" VerticalAlignment="Center" Margin="-20,0,20,0" FontSize="18" FontFamily="Tahoma" Foreground="White"/>
+                <TextBlock Text="Convidado" VerticalAlignment="Center" Margin="0,0,0,0" FontSize="18" FontFamily="Tahoma" Foreground="White"/>
             </StackPanel>
         </Button>
 
