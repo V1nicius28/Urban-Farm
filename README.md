@@ -33,3 +33,5 @@ Local data storage via JSON
 
 📁 File Storage
 User data is saved locally in JSON format, ensuring persistence even after closing the app. No internet connection required for core functionality.
+
+🌤️ This app uses the [Open-Meteo API](https://open-meteo.com/) which is free and requires no authentication key.
