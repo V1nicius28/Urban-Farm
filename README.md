@@ -1,3 +1,4 @@
+# Urban-Farm
 Urban Farm is a desktop application developed in C# using WPF (.NET 8) designed to help manage and track urban farming operations. The app provides an intuitive interface for monitoring monthly production, plant growth, harvested volume, and resource usage.
 
 ✨ Features
