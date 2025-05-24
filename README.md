@@ -37,7 +37,7 @@ Os dados dos usuários são salvos localmente no formato JSON, garantindo persis
 
 🌤️ Este aplicativo utiliza a API Open-Meteo, que é gratuita e não requer chave de autenticação.
 
-English version
+**English version**
 
 Urban Farm is a desktop application developed in C# using WPF (.NET) designed to help manage and track urban farming operations. The app provides an intuitive interface for monitoring monthly production, plant growth, harvested volume, and resource usage.
 
