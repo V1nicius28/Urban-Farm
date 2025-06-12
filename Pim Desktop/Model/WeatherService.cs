@@ -13,7 +13,6 @@ namespace Pim_Desktop
     {
         private static readonly HttpClient client = new HttpClient();
 
-        // Método para buscar a previsão do tempo com base na latitude e longitude
         public async Task<WeatherInfo?> GetWeatherAsync(double latitude, double longitude)
         {
             try

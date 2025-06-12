@@ -22,7 +22,6 @@ namespace Pim_Desktop
     
     public partial class TelaInicio : Window
     {
-        // Instância do serviço de clima
         private WeatherService weatherService = new WeatherService();
 
 
@@ -31,41 +30,37 @@ namespace Pim_Desktop
             InitializeComponent();
             MainFrame.Navigate(new PageInicio(MainFrame));
             MainFrame.SizeChanged += MainFrame_SizeChanged;
-            LoadWeather(); // Chama o método para carregar o tempo na inicialização
+            LoadWeather(); 
             InicioButton.IsChecked = true;
             this.Closing += MainWindow_Closing;
         }
 
-        // Evento para arrastar a janela ao clicar e arrastar na barra de título
         private void Border_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             DragMove();
         }
 
-        // Evento para fechar a janela
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
 
-        // Evento para minimizar a janela
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
         }
 
-        // Evento para maximizar ou restaurar a janela
         private void MaximizeButton_Click(object sender, RoutedEventArgs e)
         {
             if (WindowState == WindowState.Normal)
             {
                 WindowState = WindowState.Maximized;
-                MaximizeButton.Content = "❐"; // Altera o conteúdo do botão para restaurar
+                MaximizeButton.Content = "❐"; 
             }
             else
             {
                 WindowState = WindowState.Normal;
-                MaximizeButton.Content = "⃞"; // Altera o conteúdo do botão para maximizar
+                MaximizeButton.Content = "⃞"; 
                 MaximizeButton.Width = 30;
             }
         }
@@ -106,8 +101,6 @@ namespace Pim_Desktop
 
         private void MainFrame_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-
-            // Defina o clip com base no tamanho atual do Frame
             RectangleGeometry rectangleGeometry = new RectangleGeometry
             {
                 RadiusX = 20,
@@ -117,24 +110,19 @@ namespace Pim_Desktop
             MainFrame.Clip = rectangleGeometry;
         }
 
-        // Método para carregar o tempo automaticamente
         private async void LoadWeather()
         {
-            // Defina as coordenadas (latitude e longitude)
-            double latitude = -23.5505; // Exemplo: São Paulo
+            double latitude = -23.5505; 
             double longitude = -46.6333;
 
-            // Obtém os dados do tempo
             WeatherInfo? weatherInfo = await weatherService.GetWeatherAsync(latitude, longitude);
 
-            // Verifica se a informação foi obtida
             if (weatherInfo != null)
             {
                 this.DataContext = weatherInfo;
             }
             else
             {
-                // Lida com o caso em que o retorno é nulo (API falhou)
                 MessageBox.Show("Não foi possível obter as informações meteorológicas. Tente novamente mais tarde.");
             }
         }
@@ -150,15 +138,13 @@ namespace Pim_Desktop
             }
         }
 
-        // Evento ao clicar no botão de atualizar tempo
         private void OnUpdateWeatherClick(object sender, RoutedEventArgs e)
         {
-            LoadWeather(); // Atualiza as informações meteorológicas
+            LoadWeather(); 
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            // Verifica se há uma janela aberta e fecha
             var registro = Application.Current.Windows.OfType<RegistroDoacoes>().FirstOrDefault();
             if (registro != null)
             {
@@ -192,7 +178,6 @@ namespace Pim_Desktop
 
         private void MainWindow_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
         {
-            // Verifica se a janela 'RegistroDoacoes' está aberta e a fecha
             var registro = Application.Current.Windows.OfType<RegistroDoacoes>().FirstOrDefault();
             if (registro != null)
             {

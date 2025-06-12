@@ -13,7 +13,6 @@ namespace Pim_Desktop
         {
             ResourceDictionary newTheme = new ResourceDictionary() { Source = themeUri };
 
-            // Remove o tema antigo
             var oldTheme = App.Current.Resources.MergedDictionaries
                 .FirstOrDefault(d => d.Source != null && d.Source.OriginalString.Contains("Theme/"));
 
@@ -22,7 +21,6 @@ namespace Pim_Desktop
                 App.Current.Resources.MergedDictionaries.Remove(oldTheme);
             }
 
-            // Adiciona o novo tema
             App.Current.Resources.MergedDictionaries.Add(newTheme);
         }
     }

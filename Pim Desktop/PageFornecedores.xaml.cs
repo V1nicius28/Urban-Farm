@@ -31,7 +31,6 @@ namespace Pim_Desktop
 
         private void Voltar_Click(object sender, RoutedEventArgs e)
         {
-            // Navega de volta para a PageInicio
             _mainFrame.Navigate(new PageInicio(_mainFrame));
         }
 
@@ -50,11 +49,9 @@ namespace Pim_Desktop
 
         private void Pedido_Click(object sender, RoutedEventArgs e)
         {
-            // Obtenha o nome do fornecedor a partir do botão clicado
             var button = sender as Button;
             string? nomeFornecedor = button?.Tag?.ToString();
 
-            // Abra a tela Pedidos passando o nome do fornecedor
             Pedidos pedidosWindow = new Pedidos(listaDePedidos, nomeFornecedor);
             pedidosWindow.Show();
         }
@@ -63,7 +60,6 @@ namespace Pim_Desktop
         {
             if (listaDePedidos.Count == 0)
             {
-                // Exibir mensagem se não houver registros
                 MensagemPopup.Text = "Nenhum pedido registrado.";
                 AvisoPopup.HorizontalOffset = 300;
                 AvisoPopup.VerticalOffset = 50;
@@ -78,8 +74,7 @@ namespace Pim_Desktop
                 return;
             }
 
-            // Abre a janela de registro dos pedidos e passa a lista dinâmica
-            RegistroPedidos registroWindow = new RegistroPedidos(new Pedidos(listaDePedidos, ""), listaDePedidos); // Passa a lista
+            RegistroPedidos registroWindow = new RegistroPedidos(new Pedidos(listaDePedidos, ""), listaDePedidos); 
             registroWindow.Show();
         }
 
@@ -95,23 +90,21 @@ namespace Pim_Desktop
 
         private void LocalTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            string pesquisa = LocalTextBox.Text.ToLower(); // Texto da pesquisa em minúsculas para não diferenciar maiúsculas/minúsculas
+            string pesquisa = LocalTextBox.Text.ToLower(); 
 
-            // Percorre todos os itens dentro do WrapPanel
             foreach (var item in WrapPanelFornecedores.Children)
             {
                 if (item is Border border)
                 {
-                    // Procura o TextBlock dentro do Border (onde está o nome do fornecedor)
                     var textBlock = FindTextBlockInBorder(border);
 
                     if (textBlock != null && textBlock.Text.ToLower().Contains(pesquisa))
                     {
-                        border.Visibility = Visibility.Visible; // Exibe o Border se corresponder à pesquisa
+                        border.Visibility = Visibility.Visible; 
                     }
                     else
                     {
-                        border.Visibility = Visibility.Collapsed; // Oculta o Border se não corresponder
+                        border.Visibility = Visibility.Collapsed; 
                     }
                 }
             }
@@ -119,7 +112,6 @@ namespace Pim_Desktop
 
         private TextBlock? FindTextBlockInBorder(Border border)
         {
-            // Procura o TextBlock dentro do Border, que está dentro de cada item no WrapPanel
             foreach (var child in ((StackPanel)border.Child).Children)
             {
                 if (child is TextBlock textBlock)

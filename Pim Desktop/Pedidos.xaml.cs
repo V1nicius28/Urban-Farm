@@ -41,7 +41,6 @@ namespace Pim_Desktop
             string quantsolo = QuantSolo.Text;
             string quantadubo = QuantAdubo.Text;
 
-            // Verificando se todos os campos estão preenchidos
             if (string.IsNullOrWhiteSpace(local) ||
                 string.IsNullOrWhiteSpace(Semente) ||
                 string.IsNullOrWhiteSpace(Solo) ||
@@ -50,7 +49,6 @@ namespace Pim_Desktop
                 string.IsNullOrWhiteSpace(quantsolo) ||
                 string.IsNullOrWhiteSpace(quantadubo))
             {
-                // Mostrar mensagem de aviso se algum campo estiver vazio
                 MensagemPopup.Text = "Por favor, preencha todos os campos.";
                 AvisoPopup.HorizontalOffset = 260;
                 AvisoPopup.VerticalOffset = 80;
@@ -70,15 +68,12 @@ namespace Pim_Desktop
 
             if (confirmacao.Resultado)
             {
-                // Adiciona o pedido à lista dinâmica
                 string registroPedidos = $"Fornecedor: {nomeFornecedor}\nLocal: {local}\nSementes e Mudas: {Semente}\nQuantidade: {quantsemente}\nSubstratos e solo especial: {Solo}\nQuantidade: {quantsolo}\nFertilizantes e adubos: {Fertilizantes}\nQuantidade: {quantadubo}";
                 listaDePedidos.Add(registroPedidos);
 
-                // Salva a lista de pedidos em arquivo
                 SalvarDoacoes();
 
 
-                // Exibir mensagem de sucesso
                 MensagemPopup.Text = "Enviado!";
                 AvisoPopup.HorizontalOffset = 338;
                 AvisoPopup.VerticalOffset = 80;

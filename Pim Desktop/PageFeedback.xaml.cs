@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace Pim_Desktop
 {
-    /// <summary>
-    /// Interação lógica para PageFeedback.xam
-    /// </summary>
     public partial class PageFeedback : Page
     {
         public PageFeedback()
@@ -55,22 +52,18 @@ namespace Pim_Desktop
 
         private void Star_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            // Verifica qual estrela foi clicada
             if (sender is Image clickedStar)
             {
                 int starNumber = int.Parse(clickedStar.Name.Replace("Star", ""));
 
-                // Atualiza a classificação selecionada
                 selectedRating = starNumber;
 
-                // Atualiza as imagens das estrelas
                 UpdateStarImages();
             }
         }
 
         private void UpdateStarImages()
         {
-            // Define as imagens das estrelas com base na classificação selecionada
             for (int i = 1; i <= 5; i++)
             {
                 Image star = (Image)FindName($"Star{i}");
@@ -96,21 +89,17 @@ namespace Pim_Desktop
                 return;
             }
 
-            // Envia a avaliação com no mínimo 1 estrela
             MensagemPopup.Text = "Avaliação enviada!";
             AvisoPopup.HorizontalOffset = 338;
             AvisoPopup.VerticalOffset = 80;
             AvisoPopup.IsOpen = true;
 
-            // Limpar os campos e resetar o estado do formulário
             selectedRating = 0;
             CommentTextBox.Text = string.Empty;
             EmailTextBox.Text = string.Empty;
 
-            // Atualizar as imagens das estrelas para refletir a classificação zerada
             UpdateStarImages();
 
-            // Mostrar os placeholders novamente
             EmailText.Visibility = Visibility.Visible;
             CommentText.Visibility = Visibility.Visible;
 

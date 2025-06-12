@@ -21,36 +21,32 @@ namespace Pim_Desktop
             this.Closing += MainWindow_Closing;
         }
 
-        // Evento para arrastar a janela ao clicar e arrastar na barra de título
         private void Border_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             DragMove();
         }
 
-        // Evento para fechar a janela
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
 
-        // Evento para minimizar a janela
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
         }
 
-        // Evento para maximizar ou restaurar a janela
         private void MaximizeButton_Click(object sender, RoutedEventArgs e)
         {
             if (WindowState == WindowState.Normal)
             {
                 WindowState = WindowState.Maximized;
-                MaximizeButton.Content = "❐"; // Altera o conteúdo do botão para restaurar
+                MaximizeButton.Content = "❐"; 
             }
             else
             {
                 WindowState = WindowState.Normal;
-                MaximizeButton.Content = "⃞"; // Altera o conteúdo do botão para maximizar
+                MaximizeButton.Content = "⃞"; 
                 MaximizeButton.Width = 30;
             }
         }
@@ -88,83 +84,71 @@ namespace Pim_Desktop
 
         private void Acessar_Click(object sender, RoutedEventArgs e)
         {
-            // Obter as credenciais
             string email = EmailTextBox.Text;
             string senha = SenhaTextBox.Password;
 
-            // Validação simples de credenciais
             if (email == "admin@gmail.com" && senha == "admin")
             {
-                // Abrir a nova janela se as credenciais forem válidas
                 TelaInicio novaJanela = new TelaInicio();
-                novaJanela.Show(); // Abre a nova janela
-                this.Close(); // Fecha a janela de login
+                novaJanela.Show(); 
+                this.Close(); 
             }
             else
             {
-                // Exibir mensagens de erro apropriadas
                 bool emailInvalido = false;
                 bool senhaInvalida = false;
 
-                // Exibir mensagens de erro apropriadas
                 if (string.IsNullOrWhiteSpace(EmailTextBox.Text))
                 {
-                    EmailBorder.BorderBrush = new SolidColorBrush(Color.FromRgb(237, 66, 69)); ; // Borda vermelha
-                    EmailError.Text = "Email inválido";  // Mensagem personalizada
-                    EmailError.Visibility = Visibility.Visible; // Mostrar mensagem de erro
-                    emailInvalido = true; // Marcar email como inválido
+                    EmailBorder.BorderBrush = new SolidColorBrush(Color.FromRgb(237, 66, 69)); 
+                    EmailError.Text = "Email inválido"; 
+                    EmailError.Visibility = Visibility.Visible; 
+                    emailInvalido = true; 
                 }
 
 
-                // Se ambos os campos estão preenchidos, verificar credenciais
                 if (!emailInvalido && !senhaInvalida)
                 {
                     if (senha != "admin" || email != "admin@gmail.com")
 
-                    SenhaBorder.BorderBrush = new SolidColorBrush(Color.FromRgb(237, 66, 69)); ; // Borda vermelha
-                    EmailBorder.BorderBrush = new SolidColorBrush(Color.FromRgb(237, 66, 69)); ; // Borda vermelha
-                    SenhaError.Text = "Suas credenciais estão incorretas ou expiraram";  // Mensagem personalizada
-                    SenhaError.Visibility = Visibility.Visible; // Mostrar mensagem de erro
+                    SenhaBorder.BorderBrush = new SolidColorBrush(Color.FromRgb(237, 66, 69)); 
+                    EmailBorder.BorderBrush = new SolidColorBrush(Color.FromRgb(237, 66, 69)); 
+                    SenhaError.Text = "Suas credenciais estão incorretas ou expiraram";  
+                    SenhaError.Visibility = Visibility.Visible; 
                 }
             }
         }
 
-        // Quando o texto no campo de email é alterado, reseta a mensagem de erro
         private void EmailTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(EmailTextBox.Text))
             {
-                EmailError.Visibility = Visibility.Collapsed; // Oculta mensagem de erro
-                SenhaError.Visibility = Visibility.Collapsed; // Oculta mensagem de erro
+                EmailError.Visibility = Visibility.Collapsed; 
+                SenhaError.Visibility = Visibility.Collapsed; 
             }
         }
 
-        // Quando o texto no campo de senha é alterado, reseta a mensagem de erro
         private void SenhaPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(SenhaTextBox.Password))
             {
-                SenhaError.Visibility = Visibility.Collapsed; // Oculta mensagem de erro
+                SenhaError.Visibility = Visibility.Collapsed;
             }
 
-            // Se o campo de senha estiver visível, atualize o TextBox visível
             if (VisiblePasswordBox.Visibility == Visibility.Collapsed)
             {
-                VisiblePasswordBox.Text = SenhaTextBox.Password; // Atualiza o TextBox visível
+                VisiblePasswordBox.Text = SenhaTextBox.Password;
             }
         }
 
-        // Método para alternar entre mostrar/ocultar senha
         private void TogglePasswordButton_Click(object sender, RoutedEventArgs e)
         {
             if (SenhaTextBox.Visibility == Visibility.Visible)
             {
-                // Mostrar a senha como texto
                 SenhaTextBox.Visibility = Visibility.Collapsed;
                 VisiblePasswordBox.Visibility = Visibility.Visible;
                 VisiblePasswordBox.Text = SenhaTextBox.Password;
 
-                // Altera a imagem do botão para o ícone "ocultar"
                 TogglePasswordButton.Content = new Image
                 {
                     Source = new BitmapImage(new Uri("Images/HideVisible.png", UriKind.Relative)),
@@ -174,12 +158,10 @@ namespace Pim_Desktop
             }
             else
             {
-                // Ocultar a senha
                 SenhaTextBox.Visibility = Visibility.Visible;
                 VisiblePasswordBox.Visibility = Visibility.Collapsed;
                 SenhaTextBox.Password = VisiblePasswordBox.Text;
 
-                // Altera a imagem do botão para o ícone "mostrar"
                 TogglePasswordButton.Content = new Image
                 {
                     Source = new BitmapImage(new Uri("Images/HideCollapsed.png", UriKind.Relative)),
@@ -189,51 +171,48 @@ namespace Pim_Desktop
             }
         }
 
-        // Método para sincronizar o conteúdo do TextBox visível ao digitar
         private void VisiblePasswordBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // Atualizar PasswordBox com o conteúdo do TextBox visível
             if (SenhaTextBox.Visibility == Visibility.Collapsed)
             {
-                SenhaTextBox.Password = VisiblePasswordBox.Text; // Atualizar PasswordBox
+                SenhaTextBox.Password = VisiblePasswordBox.Text; 
             }
         }
 
         private void EsqueceuSenha_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             TelaEsqueceuSenha redefinirSenhaWindow = new TelaEsqueceuSenha();
-            redefinirSenhaWindow.ShowDialog(); // Abre a nova janela e espera o fechamento
+            redefinirSenhaWindow.ShowDialog(); 
         }
 
         private void Inscrever_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             TelaCadastro fazercadastroWindow = new TelaCadastro();
-            fazercadastroWindow.Show(); // Abre a nova janela e espera o fechamento
+            fazercadastroWindow.Show(); 
             this.Close();
         }
 
         private void Google_Click(object sender, RoutedEventArgs e)
         {
             LoginGoogle LoginWindow = new LoginGoogle();
-            LoginWindow.Show(); // Abre a nova janela e espera o fechamento
+            LoginWindow.Show(); 
         }
 
         private void Convidado_Click(object sender, RoutedEventArgs e)
         {
             TelaInicio LoginWindow = new TelaInicio();
-            LoginWindow.Show(); // Abre a nova janela e espera o fechamento
-            Application.Current.MainWindow.Close(); // Fecha a MainWindow
+            LoginWindow.Show(); 
+            Application.Current.MainWindow.Close(); 
             this.Close();
 
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            // Verifica se há uma janela do tipo LoginGoogle aberta e a fecha
             var loginGoogle = Application.Current.Windows.OfType<LoginGoogle>().FirstOrDefault();
             if (loginGoogle != null)
             {
-                loginGoogle.Close(); // Fecha a janela de Login Google
+                loginGoogle.Close(); 
             }
         }
 

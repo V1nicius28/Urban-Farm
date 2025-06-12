@@ -14,23 +14,18 @@ namespace Pim_Desktop
             InitializeComponent();
         }
 
-        // Evento para o botão Enviar
         private void EnviarButton_Click(object sender, RoutedEventArgs e)
         {
             string email = EmailTextBox.Text;
 
-            // Verifica se o e-mail é válido
-            if (string.IsNullOrWhiteSpace(email) || !email.Contains("@")) // Ajuste para verificar se contém "@" corretamente
+            if (string.IsNullOrWhiteSpace(email) || !email.Contains("@")) 
             {
-                EmailBorder.BorderBrush = new SolidColorBrush(Color.FromRgb(237, 66, 69)); // Borda vermelha
-                EmailError.Text = "Email inválido";  // Mensagem personalizada
-                EmailError.Visibility = Visibility.Visible; // Mostrar mensagem de erro
+                EmailBorder.BorderBrush = new SolidColorBrush(Color.FromRgb(237, 66, 69)); 
+                EmailError.Text = "Email inválido";  
+                EmailError.Visibility = Visibility.Visible; 
             }
             else
             {
-                // Aqui você pode adicionar a lógica para enviar o e-mail de redefinição de senha
-
-                // Exibir o Popup com a mensagem
                 MostrarPopup($"Um link de redefinição foi enviado para o e-mail: {email}");
 
             }
@@ -38,21 +33,20 @@ namespace Pim_Desktop
 
         private void MostrarPopup(string mensagem)
         {
-            MensagemPopup.Text = mensagem; // Atualiza a mensagem do Popup
-            AvisoPopup.IsOpen = true; // Abre o Popup
+            MensagemPopup.Text = mensagem; 
+            AvisoPopup.IsOpen = true; 
 
-            // Cria um DispatcherTimer para fechar o Popup após 4 segundos
             DispatcherTimer timer = new DispatcherTimer
             {
-                Interval = TimeSpan.FromSeconds(4) // Define o intervalo de 4 segundos
+                Interval = TimeSpan.FromSeconds(4) 
             };
             timer.Tick += (s, args) =>
             {
-                AvisoPopup.IsOpen = false; // Fecha o Popup
-                timer.Stop(); // Para o timer
-                this.Close(); // Fecha a janela
+                AvisoPopup.IsOpen = false; 
+                timer.Stop(); 
+                this.Close(); 
             };
-            timer.Start(); // Inicia o timer
+            timer.Start(); 
         }
 
         private void EmailBox_GotFocus(object sender, RoutedEventArgs e)
@@ -69,19 +63,17 @@ namespace Pim_Desktop
             }
         }
 
-        // Quando o texto no campo de email é alterado, reseta a mensagem de erro
         private void EmailTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(EmailTextBox.Text))
             {
-                EmailError.Visibility = Visibility.Collapsed; // Oculta mensagem de erro
+                EmailError.Visibility = Visibility.Collapsed; 
             }
         }
 
-        // Evento para o botão Cancelar
         private void CancelarButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Close(); // Fechar a janela
+            this.Close(); 
         }
     }
 }

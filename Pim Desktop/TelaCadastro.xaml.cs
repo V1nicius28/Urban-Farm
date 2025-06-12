@@ -23,41 +23,36 @@ namespace Pim_Desktop
             InitializeComponent();
         }
 
-        // Evento para arrastar a janela ao clicar e arrastar na barra de título
         private void Border_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             DragMove();
         }
 
-        // Evento para fechar a janela
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
 
-        // Evento para minimizar a janela
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
         }
 
-        // Evento para maximizar ou restaurar a janela
         private void MaximizeButton_Click(object sender, RoutedEventArgs e)
         {
             if (WindowState == WindowState.Normal)
             {
                 WindowState = WindowState.Maximized;
-                MaximizeButton.Content = "❐"; // Altera o conteúdo do botão para restaurar
+                MaximizeButton.Content = "❐"; 
             }
             else
             {
                 WindowState = WindowState.Normal;
-                MaximizeButton.Content = "⃞"; // Altera o conteúdo do botão para maximizar
+                MaximizeButton.Content = "⃞"; 
                 MaximizeButton.Width = 30;
             }
         }
 
-        // Evento para quando o TextBox "Person" ganha foco
         private void PersonBox_GotFocus(object sender, RoutedEventArgs e)
         {
             PersonText.Visibility = Visibility.Collapsed;
@@ -70,7 +65,6 @@ namespace Pim_Desktop
                 PersonText.Visibility = Visibility.Visible;
         }
 
-        // Evento para quando o TextBox "Email" ganha foco
         private void EmailBox_GotFocus(object sender, RoutedEventArgs e)
         {
             EmailText.Visibility = Visibility.Collapsed;
@@ -83,17 +77,15 @@ namespace Pim_Desktop
                 EmailText.Visibility = Visibility.Visible;
         }
 
-        // Evento para validação de Nome
         private void PersonTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(PersonTextBox.Text))
             {
-                UserError.Visibility = Visibility.Collapsed; // Oculta mensagem de erro
+                UserError.Visibility = Visibility.Collapsed; 
             }
         
         }
 
-        // Evento para validação de Email
         private void EmailTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (IsValidEmail(EmailTextBox.Text))
@@ -106,14 +98,12 @@ namespace Pim_Desktop
             }
         }
 
-        // Validação de formato de Email
         private bool IsValidEmail(string email)
         {
             string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
             return Regex.IsMatch(email, pattern);
         }
 
-        // Evento para quando o PasswordBox "Senha" ganha foco
         private void SenhaBox_GotFocus(object sender, RoutedEventArgs e)
         {
             SenhaText.Visibility = Visibility.Collapsed;
@@ -126,7 +116,6 @@ namespace Pim_Desktop
                 SenhaText.Visibility = Visibility.Visible;
         }
 
-        // Evento para quando o PasswordBox "Confirmar Senha" ganha foco
         private void SenhaBox2_GotFocus(object sender, RoutedEventArgs e)
         {
             SenhaText2.Visibility = Visibility.Collapsed;
@@ -139,7 +128,6 @@ namespace Pim_Desktop
                 SenhaText2.Visibility = Visibility.Visible;               
         }
 
-        // Evento para quando o conteúdo do PasswordBox muda
         private void SenhaPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
             SenhaError.Visibility = SenhaTextBox.Password.Length < 6 ? Visibility.Visible : Visibility.Collapsed;
@@ -157,49 +145,47 @@ namespace Pim_Desktop
             }
         }
 
-        // Evento para o botão de cadastro
         private void Cadastrar_Click(object sender, RoutedEventArgs e)
         {
             if (ValidateFields())
             {
                 TelaInicio fazercadastroWindow = new TelaInicio();
-                fazercadastroWindow.Show(); // Abre a nova janela e espera o fechamento
+                fazercadastroWindow.Show(); 
                 this.Close();
             }
         }
 
-        // Validação de todos os campos
         private bool ValidateFields()
         {
             if (string.IsNullOrWhiteSpace(PersonTextBox.Text))
             {
-                UserBorder.BorderBrush = new SolidColorBrush(Color.FromRgb(237, 66, 69)); ; // Borda vermelha
-                UserError.Text = "O campo Nome é obrigatório";  // Mensagem personalizada
-                UserError.Visibility = Visibility.Visible; // Mostrar mensagem de erro
+                UserBorder.BorderBrush = new SolidColorBrush(Color.FromRgb(237, 66, 69)); 
+                UserError.Text = "O campo Nome é obrigatório";  
+                UserError.Visibility = Visibility.Visible; 
                 return false;
             }
 
             if (!IsValidEmail(EmailTextBox.Text))
             {
-                EmailBorder.BorderBrush = new SolidColorBrush(Color.FromRgb(237, 66, 69)); ; // Borda vermelha
-                EmailError.Text = "Email inválido";  // Mensagem personalizada
-                EmailError.Visibility = Visibility.Visible; // Mostrar mensagem de erro
+                EmailBorder.BorderBrush = new SolidColorBrush(Color.FromRgb(237, 66, 69)); 
+                EmailError.Text = "Email inválido";  
+                EmailError.Visibility = Visibility.Visible; 
                 return false;
             }
 
             if (SenhaTextBox.Password.Length < 6)
             {
-                SenhaBorder.BorderBrush = new SolidColorBrush(Color.FromRgb(237, 66, 69)); ; // Borda vermelha
-                SenhaError.Text = "A senha deve ter pelo menos 6 caracteres"; // Mensagem personalizada
-                SenhaError.Visibility = Visibility.Visible; // Mostrar mensagem de erro
+                SenhaBorder.BorderBrush = new SolidColorBrush(Color.FromRgb(237, 66, 69)); 
+                SenhaError.Text = "A senha deve ter pelo menos 6 caracteres"; 
+                SenhaError.Visibility = Visibility.Visible; 
                 return false;
             }
 
             if (SenhaTextBox.Password != SenhaTextBox2.Password)
             {
-                SenhaBorder2.BorderBrush = new SolidColorBrush(Color.FromRgb(237, 66, 69)); ; // Borda vermelha
+                SenhaBorder2.BorderBrush = new SolidColorBrush(Color.FromRgb(237, 66, 69)); 
                 SenhaError2.Text = "As senhas não correspondem";
-                SenhaError2.Visibility = Visibility.Visible; // Mostrar mensagem de erro
+                SenhaError2.Visibility = Visibility.Visible; 
                 return false;
             }
 
@@ -210,12 +196,10 @@ namespace Pim_Desktop
         {
             if (SenhaTextBox.Visibility == Visibility.Visible)
             {
-                // Mostrar a senha como texto
                 SenhaTextBox.Visibility = Visibility.Collapsed;
                 VisiblePasswordBox.Visibility = Visibility.Visible;
                 VisiblePasswordBox.Text = SenhaTextBox.Password;
 
-                // Altera a imagem do botão para o ícone "ocultar"
                 TogglePasswordButton.Content = new Image
                 {
                     Source = new BitmapImage(new Uri("Images/HideVisible.png", UriKind.Relative)),
@@ -225,12 +209,10 @@ namespace Pim_Desktop
             }
             else
             {
-                // Ocultar a senha
                 SenhaTextBox.Visibility = Visibility.Visible;
                 VisiblePasswordBox.Visibility = Visibility.Collapsed;
                 SenhaTextBox.Password = VisiblePasswordBox.Text;
 
-                // Altera a imagem do botão para o ícone "mostrar"
                 TogglePasswordButton.Content = new Image
                 {
                     Source = new BitmapImage(new Uri("Images/HideCollapsed.png", UriKind.Relative)),
@@ -244,12 +226,10 @@ namespace Pim_Desktop
         {
             if (SenhaTextBox2.Visibility == Visibility.Visible)
             {
-                // Mostrar a senha como texto
                 SenhaTextBox2.Visibility = Visibility.Collapsed;
                 VisiblePasswordBox2.Visibility = Visibility.Visible;
                 VisiblePasswordBox2.Text = SenhaTextBox2.Password;
 
-                // Altera a imagem do botão para o ícone "ocultar"
                 TogglePasswordButton2.Content = new Image
                 {
                     Source = new BitmapImage(new Uri("Images/HideVisible.png", UriKind.Relative)),
@@ -259,12 +239,10 @@ namespace Pim_Desktop
             }
             else
             {
-                // Ocultar a senha
                 SenhaTextBox2.Visibility = Visibility.Visible;
                 VisiblePasswordBox2.Visibility = Visibility.Collapsed;
                 SenhaTextBox2.Password = VisiblePasswordBox2.Text;
 
-                // Altera a imagem do botão para o ícone "mostrar"
                 TogglePasswordButton2.Content = new Image
                 {
                     Source = new BitmapImage(new Uri("Images/HideCollapsed.png", UriKind.Relative)),
@@ -274,31 +252,26 @@ namespace Pim_Desktop
             }
         }
 
-        // Método para sincronizar o conteúdo do TextBox visível ao digitar
         private void VisiblePasswordBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // Atualizar PasswordBox com o conteúdo do TextBox visível
             if (SenhaTextBox.Visibility == Visibility.Collapsed)
             {
-                SenhaTextBox.Password = VisiblePasswordBox.Text; // Atualizar PasswordBox
+                SenhaTextBox.Password = VisiblePasswordBox.Text; 
             }
         }
 
-        // Método para sincronizar o conteúdo do TextBox visível ao digitar
         private void VisiblePasswordBox2_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // Atualizar PasswordBox com o conteúdo do TextBox visível
             if (SenhaTextBox2.Visibility == Visibility.Collapsed)
             {
-                SenhaTextBox2.Password = VisiblePasswordBox2.Text; // Atualizar PasswordBox
+                SenhaTextBox2.Password = VisiblePasswordBox2.Text; 
             }
         }
 
-        // Evento para mudar para a tela de Login
         private void Login_Click(object sender, RoutedEventArgs e)
         {
             MainWindow fazercadastroWindow = new MainWindow();
-            fazercadastroWindow.Show(); // Abre a nova janela e espera o fechamento
+            fazercadastroWindow.Show(); 
             this.Close();
         }
     }

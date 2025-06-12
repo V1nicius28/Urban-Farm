@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace Pim_Desktop
 {
-    /// <summary>
-    /// Interação lógica para PageConsumo.xam
-    /// </summary>
     public partial class PageConsumo : Page
     {
         private Frame _mainFrame;
@@ -26,12 +23,11 @@ namespace Pim_Desktop
         public PageConsumo(Frame mainFrame)
         {
             InitializeComponent();
-            _mainFrame = mainFrame; // Armazena a referência ao Frame
+            _mainFrame = mainFrame; 
         }
 
         private void Voltar_Click(object sender, RoutedEventArgs e)
         {
-            // Navega de volta para a PageInicio
             _mainFrame.Navigate(new PageInicio(_mainFrame));
         }
         private void Gerar_Click(object sender, RoutedEventArgs e)
@@ -73,7 +69,6 @@ namespace Pim_Desktop
 
         private void DesmarcarOutros(string mes)
         {
-            // Desmarcar outros meses e marcar o mês selecionado
             Janeiro.IsChecked = mes == "Janeiro";
             Fevereiro.IsChecked = mes == "Fevereiro";
             Março.IsChecked = mes == "Março";
@@ -87,7 +82,7 @@ namespace Pim_Desktop
             Novembro.IsChecked = mes == "Novembro";
             Dezembro.IsChecked = mes == "Dezembro";
 
-            _mesSelecionado = mes; // Salva o mês selecionado
+            _mesSelecionado = mes; 
         }
     }
 }

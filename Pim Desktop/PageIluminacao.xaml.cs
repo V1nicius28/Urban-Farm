@@ -17,9 +17,6 @@ using System.Windows.Controls.Primitives;
 
 namespace Pim_Desktop
 {
-    /// <summary>
-    /// Interação lógica para PageIluminacao.xam
-    /// </summary>
     public partial class PageIluminacao : Page
     {
         private Frame _mainFrame;
@@ -27,7 +24,7 @@ namespace Pim_Desktop
         public PageIluminacao(Frame mainFrame)
         {
             InitializeComponent();
-            _mainFrame = mainFrame; // Armazena a referência ao Frame
+            _mainFrame = mainFrame; 
         }
 
         private void Voltar_Click(object sender, RoutedEventArgs e)
@@ -203,7 +200,6 @@ namespace Pim_Desktop
 
         private void Ligar_Checked(object sender, RoutedEventArgs e)
         {
-            // Aguarda até que o elemento BrancoButton esteja disponível
             Dispatcher.BeginInvoke(new Action(() =>
             {
                 if (Branco != null)
@@ -220,12 +216,11 @@ namespace Pim_Desktop
         {
             LuzImage.Source = new BitmapImage(new Uri("Images/Desligado.png", UriKind.Relative));
 
-            // Desmarcar todos os botões de cor
             foreach (var child in ButtonCorPanel.Children)
             {
                 if (child is ToggleButton button)
                 {
-                    button.IsChecked = false; // Desmarca cada botão de cor
+                    button.IsChecked = false; 
                 }
             }
         }

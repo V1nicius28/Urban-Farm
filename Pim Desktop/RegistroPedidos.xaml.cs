@@ -29,17 +29,15 @@ namespace Pim_Desktop
 
         private void Excluir_Click(object sender, RoutedEventArgs e)
         {
-            // Verifica se algum item está selecionado no ListBox
             if (PedidosListBox.SelectedItem != null)
             {
                 string? pedidoSelecionada = PedidosListBox.SelectedItem?.ToString();
                 if (pedidoSelecionada != null)
                 {
-                    listaDePedidos.Remove(pedidoSelecionada); // Remove da lista interna
+                    listaDePedidos.Remove(pedidoSelecionada); 
 
-                    // Atualiza o ListBox
-                    PedidosListBox.ItemsSource = null; // Limpa a fonte atual
-                    PedidosListBox.ItemsSource = listaDePedidos; // Define novamente a fonte com a lista atualizada
+                    PedidosListBox.ItemsSource = null; 
+                    PedidosListBox.ItemsSource = listaDePedidos; 
 
 
                     SalvarDoacoes(); 

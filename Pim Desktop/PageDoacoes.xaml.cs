@@ -76,14 +76,12 @@ namespace Pim_Desktop
             string horario = HorarioTextBox.Text;
             string quantidade = QuantTextBox.Text;
 
-            // Verificando se todos os campos estão preenchidos
             if (string.IsNullOrWhiteSpace(local) ||
                 string.IsNullOrWhiteSpace(alimento) ||
                 string.IsNullOrWhiteSpace(data) ||
                 string.IsNullOrWhiteSpace(horario) ||
                 string.IsNullOrWhiteSpace(quantidade))
             {
-                // Mostrar mensagem de aviso se algum campo estiver vazio
                 MensagemPopup.Text = "Por favor, preencha todos os campos.";
                 AvisoPopup.HorizontalOffset = 260;
                 AvisoPopup.VerticalOffset = 80;
@@ -103,14 +101,11 @@ namespace Pim_Desktop
 
             if (confirmacao.Resultado)
             {
-                // Adiciona a doação à lista dinâmica
                 string registroDoacao = $"Local: {local}, Alimento: {alimento}, Data: {data}, Horário: {horario}, Quantidade: {quantidade}";
                 listaDeDoacoes.Add(registroDoacao);
 
-                // Salva a lista de doações em arquivo
                 SalvarDoacoes();
 
-                // Exibir mensagem de sucesso
                 MensagemPopup.Text = "Enviado!";
                 AvisoPopup.HorizontalOffset = 338;
                 AvisoPopup.VerticalOffset = 80;
@@ -129,7 +124,6 @@ namespace Pim_Desktop
         {
             if (listaDeDoacoes.Count == 0)
             {
-                // Exibir mensagem se não houver registros
                 MensagemPopup.Text = "Nenhuma doação registrada.";
                 AvisoPopup.HorizontalOffset = 300;
                 AvisoPopup.VerticalOffset = 80;
@@ -144,7 +138,6 @@ namespace Pim_Desktop
                 return;
             }
 
-            // Abre a janela de registro das doações e passa a lista dinâmica
             RegistroDoacoes registroWindow = new RegistroDoacoes(this, listaDeDoacoes);
             registroWindow.Show();
         }

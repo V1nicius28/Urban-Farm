@@ -26,7 +26,7 @@ namespace Pim_Desktop
         public Mensagem(string mensagem)
         {
             InitializeComponent();
-            MensagemTextBlock.Text = mensagem; // Define a mensagem exibida
+            MensagemTextBlock.Text = mensagem;
         }
 
         public Mensagem(string mensagem, string v) : this(mensagem)
@@ -36,14 +36,14 @@ namespace Pim_Desktop
 
         private void AceitarButton_Click(object sender, RoutedEventArgs e)
         {
-            Resultado = true; // Define que o usuário aceitou
-            this.Close(); // Fecha a janela
+            Resultado = true; 
+            this.Close(); 
         }
 
         private void CancelarButton_Click(object sender, RoutedEventArgs e)
         {
-            Resultado = false; // Define que o usuário cancelou
-            this.Close(); // Fecha a janela
+            Resultado = false; 
+            this.Close(); 
         }
     }
 }

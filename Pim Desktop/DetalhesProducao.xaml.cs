@@ -26,13 +26,12 @@ namespace Pim_Desktop
         {
             InitializeComponent();
             _mesSelecionado = mes;
-            MesTextBox.Text = mes; // Exibe o mês na TextBox
+            MesTextBox.Text = mes; 
             CarregarDados();
         }
 
         private void Salvar_Click(object sender, RoutedEventArgs e)
         {
-            // Captura os dados inseridos
             var dados = new
             {
                 Mes = _mesSelecionado,
@@ -42,10 +41,8 @@ namespace Pim_Desktop
                 Recursos = RecursosTextBox.Text
             };
 
-            // Salva os dados em um arquivo JSON
             SalvarDados(_mesSelecionado, dados);
 
-            // Mostra mensagem de sucesso
             MensagemPopup.Text = $"Dados para o mês de {_mesSelecionado} foram salvos.";
             AvisoPopup.HorizontalOffset = 240;
             AvisoPopup.VerticalOffset = 40;
@@ -70,7 +67,6 @@ namespace Pim_Desktop
             string filePath = $"{mes}_dados_producao.json";
             string jsonData = JsonConvert.SerializeObject(dados, Formatting.Indented);
 
-            // Escreve os dados no arquivo JSON
             File.WriteAllText(filePath, jsonData);
         }
 
@@ -80,11 +76,9 @@ namespace Pim_Desktop
 
             if (File.Exists(filePath))
             {
-                // Lê os dados do arquivo JSON
                 string jsonData = File.ReadAllText(filePath);
                 var dados = JsonConvert.DeserializeObject<dynamic>(jsonData);
 
-                // Define os valores nos TextBoxes
                 QuantidadeTextBox.Text = dados.QuantidadeProduzida;
                 CrescimentoTextBox.Text = dados.Crescimento;
                 VolumeTextBox.Text = dados.Volume;

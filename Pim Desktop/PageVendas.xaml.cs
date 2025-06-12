@@ -22,7 +22,6 @@ namespace Pim_Desktop
 {
     public partial class PageVendas : Page
     {
-        // Lista para armazenar os Borders selecionados
         private List<Border> selectedBorders = new List<Border>();
         private Border ?selectedBorder = null;
         private ComboBox escolhaComboBox;
@@ -46,7 +45,6 @@ namespace Pim_Desktop
 
         private void AdicionarVenda(Venda venda)
         {
-            // Cria um novo Border
             Border foodBorder = new Border
             {
                 Name = "FoodBorder",
@@ -57,82 +55,76 @@ namespace Pim_Desktop
                 Width = 170,
                 Margin = new Thickness(0, 0, 20, 20),
                 CornerRadius = new CornerRadius(5),
-                BorderBrush = new SolidColorBrush(Color.FromRgb(37, 167, 84)), // Verde
+                BorderBrush = new SolidColorBrush(Color.FromRgb(37, 167, 84)), 
                 BorderThickness = new Thickness(1),
                 Tag = venda.Id
             };
 
-            // Cria um Grid para conter os elementos
             Grid contentGrid = new Grid();
 
-            // Cria o Button com uma imagem como conteúdo
             Image buttonImage = new Image
             {
-                Source = new BitmapImage(new Uri("/Images/AddImage.png", UriKind.RelativeOrAbsolute)), // Substitua pelo caminho correto da sua imagem
-                Width = 50, // Ajuste a largura conforme necessário
-                Height = 50, // Ajuste a altura conforme necessário
+                Source = new BitmapImage(new Uri("/Images/AddImage.png", UriKind.RelativeOrAbsolute)), 
+                Width = 50, 
+                Height = 50, 
                 Stretch = Stretch.Uniform,
                 Margin = new Thickness(0, 0, 0, 10)
             };
 
             Button imageButton = new Button
             {
-                Width = 102, // Ajuste a largura conforme necessário
-                Height = 102, // Ajuste a altura conforme necessário
+                Width = 102, 
+                Height = 102, 
                 Content = buttonImage,
                 BorderBrush = Brushes.Transparent,
                 Background = Brushes.Transparent,
                 Style = (Style)FindResource("RoundedButtonStyle"),
-                Padding = new Thickness(0), // Remove o preenchimento
+                Padding = new Thickness(0), 
                 Margin = new Thickness(0, 0, 0, 50),
                 Cursor = Cursors.Hand
             };
-            imageButton.Click += ImageButton_Click; // Adiciona o evento ao botão
+            imageButton.Click += ImageButton_Click; 
 
 
-            // Cria o TextBox
             TextBox alimentoTextBox = new TextBox
             {
                 Name = "Alimento",
-                Text = venda.Alimento, // Define o valor da venda
+                Text = venda.Alimento, 
                 Style = (Style)FindResource("CustomTextBoxStyle"),
                 Width = 80,
                 Height = 20,
                 FontFamily = new FontFamily("Tahoma"),
                 FontSize = 14,
                 HorizontalAlignment = HorizontalAlignment.Center,
-                Margin = new Thickness(0, 0, 80, -115) // Ajuste conforme necessário
+                Margin = new Thickness(0, 0, 80, -115) 
             };
 
-            // Cria o TextBox
             TextBox precoTextBox = new TextBox
             {
                 Name = "preco",
-                Text = venda.Preco, // Define o valor da venda
+                Text = venda.Preco, 
                 Style = (Style)FindResource("CustomTextBoxStyle"),
                 Width = 70,
                 Height = 20,
                 FontFamily = new FontFamily("Tahoma"),
                 FontSize = 14,
                 HorizontalAlignment = HorizontalAlignment.Center,
-                Margin = new Thickness(0, 0, 90, -165) // Ajuste conforme necessário
+                Margin = new Thickness(0, 0, 90, -165) 
             };
 
-            // Cria o TextBox
             TextBox quantTextBox = new TextBox
             {
                 Name = "quant",
-                Text = venda.Quantidade, // Define o valor da venda
+                Text = venda.Quantidade, 
                 Style = (Style)FindResource("CustomTextBoxStyle"),
                 Width = 80,
                 Height = 20,
                 FontFamily = new FontFamily("Tahoma"),
                 FontSize = 14,
                 HorizontalAlignment = HorizontalAlignment.Center,
-                Margin = new Thickness(90, 0, 0, -115) // Ajuste conforme necessário
+                Margin = new Thickness(90, 0, 0, -115) 
             };
 
-            // Cria o ComboBox
             escolhaComboBox = new ComboBox
             {
                 Name = "escolha",
@@ -146,16 +138,14 @@ namespace Pim_Desktop
             };
 
 
-            // Adiciona opções ao ComboBox
             escolhaComboBox.Items.Add("Tipo");
             escolhaComboBox.Items.Add("Fruta");
             escolhaComboBox.Items.Add("Legume");
             escolhaComboBox.Items.Add("Verdura");
 
-            // Define a seleção padrão com base no valor da venda
+
             escolhaComboBox.SelectedItem = venda.Tipo;
 
-            // Adiciona os elementos ao Grid
 
             contentGrid.Children.Add(imageButton);
             contentGrid.Children.Add(alimentoTextBox);
@@ -163,36 +153,30 @@ namespace Pim_Desktop
             contentGrid.Children.Add(quantTextBox);
             contentGrid.Children.Add(escolhaComboBox);
 
-            // Define o Grid como filho do Border
+
             foodBorder.Child = contentGrid;
 
-            // Adiciona um evento de clique para selecionar o Border
+
             foodBorder.MouseLeftButtonDown += FoodBorder_MouseLeftButtonDown;
 
-            // Adiciona o Border ao WrapPanel dentro do ScrollViewer
             VendasWrapPanel.Children.Add(foodBorder);
 
         }
 
         private void ImageButton_Click(object sender, RoutedEventArgs e)
         {
-            // Abre o diálogo para selecionar uma imagem
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Image files (*.png;*.jpg;*.jpeg)|*.png;*.jpg;*.jpeg|All files (*.*)|*.*";
 
             if (openFileDialog.ShowDialog() == true)
             {
-                // Obtém a referência do botão clicado
                 Button clickedButton = sender as Button;
 
-                // Encontra o Border pai
                 Border parentBorder = FindParent<Border>(clickedButton);
                 if (parentBorder != null)
                 {
-                    // Obtém o ID do Border
                     int borderId = (int)parentBorder.Tag;
 
-                    // Atualiza a imagem no Border
                     Image selectedImage = new Image
                     {
                         Source = new BitmapImage(new Uri(openFileDialog.FileName)),
@@ -201,10 +185,8 @@ namespace Pim_Desktop
                         Width = 100
                     };
 
-                    // Atualiza o conteúdo da imagem no botão
                     clickedButton.Content = selectedImage;
 
-                    // Salva o caminho da imagem para o Border específico
                     SaveImagePath(borderId, openFileDialog.FileName);
                 }
             }
@@ -215,7 +197,6 @@ namespace Pim_Desktop
         {
             try
             {
-                // Cria uma nova venda
                 Venda novaVenda = new Venda
                 {
                     Alimento = "Alimento",
@@ -224,7 +205,6 @@ namespace Pim_Desktop
                     Tipo = "Tipo",
                 };
 
-                // Adiciona a venda na UI
                 AdicionarVenda(novaVenda);
             }
             catch (Exception ex)
@@ -241,7 +221,6 @@ namespace Pim_Desktop
                 {
                     if (border.Tag is int idVenda)
                     {
-                        // Remover o Border do layout
                         var parent = border.Parent as Panel;
                         parent?.Children.Remove(border);
                     }
@@ -266,7 +245,6 @@ namespace Pim_Desktop
         }
 
         
-        // Método para encontrar o filho visual de um determinado tipo
         private T? FindVisualChild<T>(DependencyObject parent) where T : DependencyObject
         {
             for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
@@ -301,20 +279,17 @@ namespace Pim_Desktop
         {
             Border clickedBorder = sender as Border;
 
-            // Verifica se o Border clicado já está na lista de selecionados
             if (selectedBorders.Contains(clickedBorder))
             {
-                // Se já está selecionado, desmarcamos
-                clickedBorder.BorderBrush = new SolidColorBrush(Color.FromRgb(37, 167, 84)); // Cor original
+                clickedBorder.BorderBrush = new SolidColorBrush(Color.FromRgb(37, 167, 84)); 
                 clickedBorder.BorderThickness = new Thickness(1);
-                selectedBorders.Remove(clickedBorder); // Remove da lista de selecionados
+                selectedBorders.Remove(clickedBorder); 
             }
             else
             {
-                // Seleciona o novo Border
-                clickedBorder.BorderBrush = new SolidColorBrush(Color.FromRgb(237, 66, 69)); // Azul para indicar seleção
+                clickedBorder.BorderBrush = new SolidColorBrush(Color.FromRgb(237, 66, 69)); 
                 clickedBorder.BorderThickness = new Thickness(2);
-                selectedBorders.Add(clickedBorder); // Adiciona à lista de selecionados
+                selectedBorders.Add(clickedBorder); 
             }
         }
 
@@ -366,38 +341,31 @@ namespace Pim_Desktop
             }
         }
 
+
         private void LocalTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             {
-                // Refiltra os Borders com base no filtro atual e no texto de pesquisa
                 FiltrarBorders(filtroAtual);
             }
         }
 
-        // Método para filtrar os Borders de acordo com o tipo selecionado
+
         private void FiltrarBorders(string tipo)
         {
-            // Atualiza o tipo de filtro atual
             filtroAtual = tipo;
 
-            // Obtém o texto de pesquisa convertido para minúsculas
             string searchText = LocalTextBox.Text.ToLower();
 
-            // Percorre todos os elementos no WrapPanel
             foreach (Border border in VendasWrapPanel.Children.OfType<Border>())
             {
-                // Obtém o ComboBox do Border
                 ComboBox comboBox = FindVisualChild<ComboBox>(border);
-                // Obtém o TextBox "Alimento" do Border
                 TextBox alimentoTextBox = FindVisualChild<TextBox>(border);
 
                 if (comboBox != null && alimentoTextBox != null)
                 {
-                    // Verifica se o tipo do ComboBox corresponde ao tipo passado e se o texto de pesquisa corresponde
                     bool tipoCorresponde = tipo == "Todos" || comboBox.SelectedItem.ToString() == tipo;
                     bool pesquisaCorresponde = alimentoTextBox.Text.ToLower().Contains(searchText);
 
-                    // Mostra o Border apenas se ambos os critérios forem atendidos
                     if (tipoCorresponde && pesquisaCorresponde)
                     {
                         border.Visibility = Visibility.Visible;
@@ -436,7 +404,6 @@ namespace Pim_Desktop
 
             ImageSettings settings;
 
-            // Carrega o arquivo JSON, se existir
             if (File.Exists(filePath))
             {
                 var json = File.ReadAllText(filePath);
@@ -447,7 +414,6 @@ namespace Pim_Desktop
                 settings = new ImageSettings();
             }
 
-            // Atualiza o dicionário com o caminho da imagem para o Border
             settings.BorderImagePaths[borderId] = path;
 
             var jsonSettings = JsonConvert.SerializeObject(settings);
@@ -464,10 +430,8 @@ namespace Pim_Desktop
                 var json = File.ReadAllText(filePath);
                 var settings = JsonConvert.DeserializeObject<ImageSettings>(json);
 
-                // Verifica se as imagens existem e aplica apenas no Border correto
                 foreach (Border foodBorder in VendasWrapPanel.Children)
                 {
-                    // Localiza o ID do Border
                     int borderId = (int)foodBorder.Tag;
 
                     if (settings?.BorderImagePaths.ContainsKey(borderId) == true)
@@ -476,21 +440,18 @@ namespace Pim_Desktop
 
                         if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
                         {
-                            // Localiza o ImageButton dentro do Border
                             Button imageButton = foodBorder?.Child is Grid grid ? grid.Children.OfType<Button>().FirstOrDefault() : null;
 
                             if (imageButton != null)
                             {
-                                // Cria uma nova imagem com o caminho salvo
                                 Image selectedImage = new Image
                                 {
                                     Source = new BitmapImage(new Uri(imagePath)),
                                     Stretch = Stretch.Uniform,
-                                    Height = 100, // Ajuste a altura conforme necessário
-                                    Width = 100 // Ajuste a largura conforme necessário
+                                    Height = 100, 
+                                    Width = 100 
                                 };
 
-                                // Substitui a imagem do botão
                                 imageButton.Content = selectedImage;
                             }
                         }

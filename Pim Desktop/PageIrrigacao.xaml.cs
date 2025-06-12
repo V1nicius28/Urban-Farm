@@ -19,7 +19,6 @@ namespace Pim_Desktop
     {
         private Frame _mainFrame;
 
-
         public PageIrrigacao(Frame mainFrame)
         {
             InitializeComponent();
@@ -29,7 +28,6 @@ namespace Pim_Desktop
 
         private void Voltar_Click(object sender, RoutedEventArgs e)
         {
-            // Navega de volta para a PageInicio
             _mainFrame.Navigate(new PageInicio(_mainFrame));
         }
 
@@ -64,7 +62,6 @@ namespace Pim_Desktop
                         return;
                     }
 
-                    // Manipulação da imagem
                     switch (ComboBox4.SelectedIndex)
                     {
                         case 0:
@@ -103,20 +100,17 @@ namespace Pim_Desktop
 
         private void ToggleSwitch_Unchecked(object sender, RoutedEventArgs e)
         {
-            // Quando o ToggleButton for desmarcado (Unchecked), as ações seguem abaixo
             MinhaImagem.Source = new BitmapImage(new Uri("Images/AguaDesligado.png", UriKind.Relative));
 
-            // Desabilitar os ComboBoxes
             ComboBox1.IsEnabled = false;
             ComboBox2.IsEnabled = false;
             ComboBox3.IsEnabled = false;
             ComboBox4.IsEnabled = false;
 
-            // Alterar a cor dos Borders de acordo com o estado
-            Border1.Background = new SolidColorBrush(Color.FromRgb(68, 68, 68)); // Cor desativada
-            Border2.Background = new SolidColorBrush(Color.FromRgb(68, 68, 68)); // Cor desativada
-            Border3.Background = new SolidColorBrush(Color.FromRgb(68, 68, 68)); // Cor desativada
-            Border4.Background = new SolidColorBrush(Color.FromRgb(68, 68, 68)); // Cor desativada
+            Border1.Background = new SolidColorBrush(Color.FromRgb(68, 68, 68)); 
+            Border2.Background = new SolidColorBrush(Color.FromRgb(68, 68, 68)); 
+            Border3.Background = new SolidColorBrush(Color.FromRgb(68, 68, 68)); 
+            Border4.Background = new SolidColorBrush(Color.FromRgb(68, 68, 68)); 
         }
     }
 }

@@ -22,19 +22,18 @@ namespace Pim_Desktop
         public PageConfiguracao()
         {
             InitializeComponent();
-            Loaded += PageConfiguracao_Loaded; // Adiciona o evento Loaded para garantir que o UpdateThemeSelection seja chamado
+            Loaded += PageConfiguracao_Loaded; 
             LoadData();
         }
 
         private void PageConfiguracao_Loaded(object sender, RoutedEventArgs e)
         {
-            UpdateThemeSelection(); // Atualiza a seleção do RadioButton sempre que a página é carregada
-            SalvarButton.Visibility = Visibility.Collapsed; // Garante que o botão comece como Collapsed
+            UpdateThemeSelection(); 
+            SalvarButton.Visibility = Visibility.Collapsed; 
         }
 
         private void UpdateThemeSelection()
         {
-            // Atualiza a seleção dos RadioButtons com base no tema salvo
             string currentTheme = ((App)Application.Current).SelectedTheme;
             DefaultRadioButton.IsChecked = currentTheme == "Dark";
             LightRadioButton.IsChecked = currentTheme == "Light";
@@ -44,7 +43,6 @@ namespace Pim_Desktop
         {
             if (sender is RadioButton radioButton && radioButton.IsChecked == true)
             {
-                // Atualiza o tema selecionado com base no RadioButton marcado
                 ((App)Application.Current).SelectedTheme = radioButton.Name == "DefaultRadioButton" ? "Dark" : "Light";
             }
         }
@@ -120,7 +118,6 @@ namespace Pim_Desktop
 
         private void SairButton_Click(object sender, RoutedEventArgs e)
         {
-            // Abre a caixa de diálogo personalizada com uma mensagem específica
             Mensagem confirmacao = new Mensagem("Tem certeza que\n deseja sair?");
             confirmacao.ShowDialog();
 
@@ -134,7 +131,6 @@ namespace Pim_Desktop
 
         private void DeletarButton_Click(object sender, RoutedEventArgs e)
         {
-            // Abre a caixa de diálogo personalizada com uma mensagem específica
             Mensagem confirmacao = new Mensagem("Deletar a conta?");
             confirmacao.ShowDialog();
 
@@ -153,7 +149,7 @@ namespace Pim_Desktop
 
             if (result == true)
             {
-                string ?descricaoErro = novaJanela.Comentario; // Obtém o comentário da janela Report
+                string ?descricaoErro = novaJanela.Comentario; 
 
                 MensagemPopup.Text = "Erro reportado com sucesso!";
                 AvisoPopup.HorizontalOffset = 250;

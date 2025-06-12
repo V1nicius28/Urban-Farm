@@ -28,36 +28,30 @@ namespace Pim_Desktop
 
         private void Producao_Click(object sender, RoutedEventArgs e)
         {
-            // Usa a referência do MainFrame para navegar
             _mainFrame.Navigate(new PageProducao(_mainFrame));
         }
 
         private void Irrigaçao_Click(object sender, RoutedEventArgs e)
         {
-            // Usa a referência do MainFrame para navegar
             _mainFrame.Navigate(new PageIrrigacao(_mainFrame));
         }
 
         private void Consumo_Click(object sender, RoutedEventArgs e)
         {
-            // Usa a referência do MainFrame para navegar
             _mainFrame.Navigate(new PageConsumo(_mainFrame));
         }
 
         private void Iluminacao_Click(object sender, RoutedEventArgs e)
         {
-            // Usa a referência do MainFrame para navegar
             _mainFrame.Navigate(new PageIluminacao(_mainFrame));
         }
         private void Plantas_Click(object sender, RoutedEventArgs e)
         {
-            // Usa a referência do MainFrame para navegar
             _mainFrame.Navigate(new PagePlantas(_mainFrame));
         }
 
         private void Fornecedores_Click(object sender, RoutedEventArgs e)
         {
-            // Usa a referência do MainFrame para navegar
             _mainFrame.Navigate(new PageFornecedores(_mainFrame));
         }
 
